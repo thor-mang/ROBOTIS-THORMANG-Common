@@ -18,26 +18,27 @@
 
 
   <!-- Used for fixing robot -->
-<xacro:if value="$(arg pinned)">
+  <xacro:arg name="pinned" default="false"/>
+    <xacro:if value="$(arg pinned)">
 
-  <link name="world">
-  </link>
+    <link name="world">
+    </link>
 
-  <joint name="world_fixed" type="fixed">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-    <parent link="world"/>
-    <child link="base"/>
-  </joint>
+    <joint name="world_fixed" type="fixed">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <parent link="world"/>
+      <child link="base"/>
+    </joint>
 
-  <link name="base">
-  </link>
+    <link name="base">
+    </link>
 
-  <joint name="base_fixed" type="fixed">
-    <origin xyz="0 0 0.723" rpy="0 0 0"/>
-    <parent link="base"/>
-    <child link="pelvis_link"/>
-  </joint>
-</xacro:if>
+    <joint name="base_fixed" type="fixed">
+      <origin xyz="0 0 0.723" rpy="0 0 0"/>
+      <parent link="base"/>
+      <child link="pelvis_link"/>
+    </joint>
+  </xacro:if>
 
   <!-- pelvis_link -->
   <link name="pelvis_link">

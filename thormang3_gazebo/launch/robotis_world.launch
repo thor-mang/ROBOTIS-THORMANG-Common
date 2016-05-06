@@ -4,6 +4,7 @@
   <arg name="position_controller" default="true"/>
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="pinned" default="false"/>
   <arg name="paused" default="true"/>
   <arg name="use_sim_time" default="true"/>
   <arg name="gui" default="true"/>
@@ -22,11 +23,11 @@
 
   <!-- Load the URDF into the ROS Parameter Server -->
   <param name="robot_description"
-	 command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+	 command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro' pinned:=$(arg pinned)" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
-	args="-urdf -model thormang3 -z 0.9 -param robot_description"/>
+	args="-urdf -model thormang3 -z 0.81 -param robot_description"/>
 
   <!-- ros_control robotis humanoid launch file -->
   <group if ="$(arg position_controller)">

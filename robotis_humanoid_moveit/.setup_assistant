@@ -1,8 +1,0 @@
-moveit_setup_assistant_config:
-  URDF:
-    package: robotis_humanoid_description
-    relative_path: urdf/robotis_humanoid.xacro
-  SRDF:
-    relative_path: config/robotis_humanoid.srdf
-  CONFIG:
-    generated_timestamp: 1455195625

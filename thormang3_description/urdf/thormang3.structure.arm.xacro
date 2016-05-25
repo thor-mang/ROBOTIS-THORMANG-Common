@@ -9,7 +9,7 @@
 	<!-- left shoulder pitch 1 joint -->
         <joint name="l_arm_sh_p1" type="revolute">
           <axis xyz="0 1 0" />		
-          <origin xyz="0.0 ${0.152-offset} 0.16" rpy="0 0 0"/>
+          <origin xyz="0.0 ${0.177-offset} 0.16" rpy="0 0 0"/>
           <parent link="${parent}"/>
           <child link="l_arm_sh_p1_link"/>
           <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
@@ -347,7 +347,7 @@
 	<!-- right shoulder pitch 1 joint -->
         <joint name="r_arm_sh_p1" type="revolute">
           <axis xyz="0 -1 0" />		
-          <origin xyz="0.0 ${-0.152+offset} 0.16" rpy="0 0 0"/>
+          <origin xyz="0.0 ${-0.177+offset} 0.16" rpy="0 0 0"/>
           <parent link="${parent}"/>
           <child link="r_arm_sh_p1_link"/>
           <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />

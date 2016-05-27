@@ -64,11 +64,11 @@ int main( int argc , char **argv )
     ros::init( argc , argv , "thormang3_rviz_publisher" );
     ros::NodeHandle nh("~");
 
-    present_joint_states_pub  = nh.advertise<sensor_msgs::JointState>("/robotis/thormang3/present_joint_states", 0);
-    goal_joint_states_pub  = nh.advertise<sensor_msgs::JointState>("/robotis/thormang3/goal_joint_states", 0);
+    present_joint_states_pub  = nh.advertise<sensor_msgs::JointState>("robotis/thormang3/present_joint_states", 0);
+    goal_joint_states_pub  = nh.advertise<sensor_msgs::JointState>("robotis/thormang3/goal_joint_states", 0);
 
-    ros::Subscriber present_joint_states_sub = nh.subscribe("/robotis/present_joint_states", 5, present_joint_states_callback);
-    ros::Subscriber goal_joint_states_sub = nh.subscribe("/robotis/goal_joint_states", 5, goal_joint_states_callback);
+    ros::Subscriber present_joint_states_sub = nh.subscribe("robotis/present_joint_states", 5, present_joint_states_callback);
+    ros::Subscriber goal_joint_states_sub = nh.subscribe("robotis/goal_joint_states", 5, goal_joint_states_callback);
 
 	ros::spin();
 

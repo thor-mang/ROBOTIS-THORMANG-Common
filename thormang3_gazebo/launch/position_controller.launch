@@ -6,7 +6,7 @@
 
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-	output="screen" ns="/thormang3" args="joint_state_controller
+	output="screen" args="joint_state_controller
 				       		     torso_y_pos
 						     l_arm_sh_p1_pos
 						     l_arm_sh_r_pos

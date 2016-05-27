@@ -31,7 +31,7 @@
 	args="-urdf -model thormang3 -z 0.81 -param robot_description"/>
 
   <!-- ros_control robotis humanoid launch file -->
-  <group if ="$(arg position_controller)">
+  <group ns="/thormang3" if="$(arg position_controller)">
   	<include file="$(find thormang3_gazebo)/launch/position_controller.launch" />
   </group>
   

@@ -12,7 +12,7 @@
           <origin xyz="0.0 ${0.177-offset} 0.16" rpy="0 0 0"/>
           <parent link="${parent}"/>
           <child link="l_arm_sh_p1_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
+          <limit velocity="6.5" effort="1000" lower="-3.6111951066" upper="2.81847847561" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="l_arm_sh_p1" />
@@ -48,7 +48,7 @@
           <origin xyz="0.057 0.060 -0.039" rpy="0 0 0"/>
           <parent link="l_arm_sh_p1_link"/>
           <child link="l_arm_sh_r_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
+          <limit velocity="6.5" effort="1000" lower="-3.09079995355" upper="0.89038382649" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="l_arm_sh_r" />
@@ -84,7 +84,7 @@
           <origin xyz="-0.057 0.033 0.0" rpy="0 0 0"/>
           <parent link="l_arm_sh_r_link"/>
           <child link="l_arm_sh_p2_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
+          <limit velocity="6.5" effort="1000" lower="-3.108976417" upper="2.26478484267" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="l_arm_sh_p2" />
@@ -120,7 +120,7 @@
           <origin xyz="0.030 0.187 0.057" rpy="0 0 0"/>
           <parent link="l_arm_sh_p2_link"/>
           <child link="l_arm_el_y_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.4}" upper="${pi*0.4}" />
+          <limit velocity="6.5" effort="1000" lower="-3.09583228021" upper="0.39169527649" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="l_arm_el_y" />
@@ -156,7 +156,7 @@
           <origin xyz="0.171 0.030 -0.057" rpy="0 0 0"/>
           <parent link="l_arm_el_y_link"/>
           <child link="l_arm_wr_r_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.9}" upper="${pi*0.9}" />
+          <limit velocity="6.5" effort="1000" lower="-4.92581042699" upper="5.78071665106" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="l_arm_wr_r" />
@@ -192,7 +192,7 @@
           <origin xyz="0.039 0.0 0.045" rpy="0 0 0"/>
           <parent link="l_arm_wr_r_link"/>
           <child link="l_arm_wr_y_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.45}" />
+          <limit velocity="6.5" effort="1000" lower="-1.45668540746" upper="1.28462438562" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="l_arm_wr_y" />
@@ -228,7 +228,7 @@
           <origin xyz="0.045 -0.045 -0.045" rpy="0 0 0"/>
           <parent link="l_arm_wr_y_link"/>
           <child link="l_arm_wr_p_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.45}" />
+          <limit velocity="6.5" effort="1000" lower="-1.34684601987" upper="1.36840018971" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="l_arm_wr_p" />

@@ -10,9 +10,9 @@
   <xacro:include filename="$(find thormang3_description)/urdf/thormang3.structure.head.xacro" />
 
 
-  <!-- Used for fixing robot -->
+  <!-- Used for pinning robot -->
   <xacro:arg name="pinned" default="false"/>
-    <xacro:if value="$(arg pinned)">
+  <xacro:if value="$(arg pinned)">
 
     <link name="world">
     </link>

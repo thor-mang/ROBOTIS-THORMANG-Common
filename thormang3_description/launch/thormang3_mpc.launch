@@ -12,17 +12,14 @@
     
     <!-- send joint values -->
     <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-        <param name="use_gui" value="FALSE"/>
-        <param name="rate" value="30"/>
-        <remap from="/joint_states" to="/$(arg robot_name)/robotis/thormang3/joint_states" />
-        <rosparam param="source_list" if="$(arg use_present)">["robotis/thormang3/present_joint_states"]</rosparam>
-        <rosparam param="source_list" unless="$(arg use_present)">["robotis/thormang3/goal_joint_states"]</rosparam>
+      <param name="use_gui" value="false"/>
+      <param name="rate" value="125"/>
+      <rosparam param="source_list" if="$(arg use_present)">["robotis/present_joint_states"]</rosparam>
+      <rosparam param="source_list" unless="$(arg use_present)">["robotis/goal_joint_states"]</rosparam>
     </node>
 
     <!-- Combine joint values to TF-->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
-        <remap from="/joint_states" to="/$(arg robot_name)/robotis/thormang3/joint_states"/>
-    </node>
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 
     <!-- Gripper Pub-->
     <node name="thormang3_rviz_pub" pkg="thormang3_description" type="thormang3_rviz_pub">

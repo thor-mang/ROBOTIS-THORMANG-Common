@@ -2,9 +2,11 @@
 
 <launch>    
     <arg name="use_present" default="true" />
+    <arg name="hand_type_0" default="no_hand" />  
+    <arg name="hand_type_1" default="no_hand" />
     
     <param name="robot_description"
-    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro' hand_type_0:=$(arg hand_type_0) hand_type_1:=$(arg hand_type_1)" />
     
     <!-- send joint values -->
     <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

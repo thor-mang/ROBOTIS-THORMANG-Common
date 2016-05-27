@@ -110,6 +110,10 @@
 
   <link name="imu_link">
   </link>
+
+  
+  <xacro:arg name="hand_type_0" default="no_hand"/>
+  <xacro:arg name="hand_type_0" default="no_hand"/>
   
   <xacro:thormang3_l_arm parent="chest_link" />
   <xacro:thormang3_r_arm parent="chest_link" />

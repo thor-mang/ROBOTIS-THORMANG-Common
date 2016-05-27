@@ -4,6 +4,10 @@
     <xacro:property name="pi" value="3.141592654" />
     <xacro:property name="offset" value="0.0" />
 
+    
+    <xacro:include filename="$(find $(arg hand_type_0)_description)/urdf/$(arg hand_type_0).xacro" />
+    <xacro:include filename="$(find $(arg hand_type_1)_description)/urdf/$(arg hand_type_1).xacro" />
+
     <xacro:macro name="thormang3_l_arm" params="parent">
 
 	<!-- left shoulder pitch 1 joint -->

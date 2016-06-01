@@ -5,24 +5,22 @@
   <arg name="robot_name" default="thormang3" />
   <arg name="pinned" default="false"/>
   <arg name="use_present" default="true" />
-    
-  <group ns="/$(arg robot_name)">    
-    <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro' robot_name:=$(arg robot_name) pinned:=$(arg pinned)" />
-    
-    <!-- send joint values -->
-    <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-      <param name="use_gui" value="false"/>
-      <param name="rate" value="125"/>
-      <rosparam param="source_list" if="$(arg use_present)">["robotis/present_joint_states"]</rosparam>
-      <rosparam param="source_list" unless="$(arg use_present)">["robotis/goal_joint_states"]</rosparam>
-    </node>
+      
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro' robot_name:=$(arg robot_name) pinned:=$(arg pinned)" />
 
-    <!-- Combine joint values to TF-->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+  <!-- send joint values -->
+  <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+    <param name="rate" value="125"/>
+    <rosparam param="source_list" if="$(arg use_present)">["robotis/present_joint_states"]</rosparam>
+    <rosparam param="source_list" unless="$(arg use_present)">["robotis/goal_joint_states"]</rosparam>
+  </node>
 
-    <!-- Gripper Pub-->
-    <node name="thormang3_rviz_pub" pkg="thormang3_description" type="thormang3_rviz_pub">
-    </node>
-  </group>
+  <!-- Combine joint values to TF-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
+
+  <!-- Gripper Pub-->
+  <node name="thormang3_rviz_pub" pkg="thormang3_description" type="thormang3_rviz_pub">
+  </node>
 </launch>

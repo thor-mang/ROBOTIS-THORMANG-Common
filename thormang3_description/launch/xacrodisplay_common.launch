@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="robot_name" default="johnny5" />
+  <arg name="use_hands" default="true" />
+
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'
+    robot_name:=$(arg robot_name)
+    use_hands:=$(arg use_hands)" />
+
+  <param name="use_gui" value="True"/>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find thormang3_description)/rviz/xacrodisplay.rviz"/>
+</launch>

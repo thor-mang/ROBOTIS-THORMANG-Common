@@ -3,14 +3,16 @@
 <launch> 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="robot_name" default="thormang3" />
+  <arg name="use_hands" default="true" />
   <arg name="pinned" default="false"/>
   <arg name="use_present" default="true" />
-  <arg name="hand_type_0" default="no_hand" />  
-  <arg name="hand_type_1" default="no_hand" />
     
-  <group ns="/$(arg robot_name)">    
+  <group ns="/$(arg robot_name)">
     <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro' robot_name:=$(arg robot_name) pinned:=$(arg pinned) hand_type_0:=$(arg hand_type_0) hand_type_1:=$(arg hand_type_1)" />
+    <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'
+      robot_name:=$(arg robot_name)
+      use_hands:=$(arg use_hands)
+      pinned:=$(arg pinned)" />
     
     <!-- send joint values -->
     <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -22,9 +24,5 @@
 
     <!-- Combine joint values to TF-->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-
-    <!-- Gripper Pub-->
-    <node name="thormang3_rviz_pub" pkg="thormang3_description" type="thormang3_rviz_pub">
-    </node>
   </group>
 </launch>

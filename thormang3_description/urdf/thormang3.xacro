@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<robot name="thormang3" xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:arg name="robot_name" default="thormang3"/>
-  <!-- Import all Gazebo-customization elements, including Gazebo colors-->
+
+<robot name="$(arg robot_name)" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Import all Gazebo-customization elements, including Gazebo colors -->
   <xacro:include filename="$(find thor_mang_gazebo)/urdf/thormang3.gazebo" />
   <!-- Import Rviz colors -->
   <xacro:include filename="$(find thormang3_description)/urdf/materials.xacro" />

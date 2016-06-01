@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
-<!-- Revolute-Revolute Manipulator -->
-<robot name="thormang3" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   
   <!-- some parameters -->
   <xacro:property name="pi" value="3.141592654" />
@@ -103,9 +102,6 @@
 
   <link name="imu_link">
   </link>
-
-  <xacro:arg name="hand_type_0" default="no_hand"/>
-  <xacro:arg name="hand_type_0" default="no_hand"/>
   
   <xacro:thormang3_l_arm parent="chest_link" />
   <xacro:thormang3_r_arm parent="chest_link" />

@@ -1,28 +1,23 @@
 <?xml version="1.0" ?>
 
-<launch> 
+<launch>    
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
   <arg name="robot_name" default="thormang3" />
   <arg name="use_hands" default="true" />
   <arg name="pinned" default="false"/>
   <arg name="use_present" default="true" />
-    
-  <group ns="/$(arg robot_name)">
-    <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'
-      robot_name:=$(arg robot_name)
-      use_hands:=$(arg use_hands)
-      pinned:=$(arg pinned)" />
-    
-    <!-- send joint values -->
-    <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-      <param name="use_gui" value="false"/>
-      <param name="rate" value="125"/>
-      <rosparam param="source_list" if="$(arg use_present)">["robotis/present_joint_states"]</rosparam>
-      <rosparam param="source_list" unless="$(arg use_present)">["robotis/goal_joint_states"]</rosparam>
-    </node>
+      
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro' robot_name:=$(arg robot_name) pinned:=$(arg pinned)" />
 
-    <!-- Combine joint values to TF-->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
-  </group>
+  <!-- send joint values -->
+  <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <param name="use_gui" value="false"/>
+    <param name="rate" value="125"/>
+    <rosparam param="source_list" if="$(arg use_present)">["robotis/present_joint_states"]</rosparam>
+    <rosparam param="source_list" unless="$(arg use_present)">["robotis/goal_joint_states"]</rosparam>
+  </node>
+
+  <!-- Combine joint values to TF-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
 </launch>

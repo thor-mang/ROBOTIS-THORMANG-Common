@@ -9,8 +9,6 @@
     <!-- VT hands description -->
     <xacro:include filename="$(find thor_vt_hand_description)/urdf/vt_hand_tud.urdf.xacro.xml" />
 
-    <xacro:macro name="vt_hands_tud_macro">
-
     <vt_hand_tud_macro parent="l_arm_wr_p_link" prefix="l" reflect="-1" >
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </vt_hand_tud_macro>
@@ -18,8 +16,6 @@
     <vt_hand_tud_macro parent="r_arm_wr_p_link" prefix="r" reflect="1" >
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </vt_hand_tud_macro>
-
-    </xacro:macro>
 
     <xacro:macro name="thormang3_l_arm" params="parent">
 

@@ -4,7 +4,8 @@
   <!-- ros_control plugin -->
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>/$(arg robot_name)</robotNamespace>
+      <robotNamespace>/gazebo/$(arg robot_name)</robotNamespace>
+      <robotParam>/$(arg robot_name)/robot_description</robotParam>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
   </gazebo>
@@ -36,9 +37,9 @@
             <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
                 <alwaysOn>true</alwaysOn>
                 <updateRate>0.0</updateRate>
-                <cameraName>/robotis/sensor/camera</cameraName>
-                <imageTopicName>/robotis/sensor/image_raw</imageTopicName>
-                <cameraInfoTopicName>/robotis/sensor/camera_info</cameraInfoTopicName>
+                <cameraName>/sensor/camera</cameraName>
+                <imageTopicName>image_raw</imageTopicName>
+                <cameraInfoTopicName>camera_info</cameraInfoTopicName>
                 <frameName>cam_link</frameName>
                 <hackBaseline>0.07</hackBaseline>
                 <distortionK1>0.0</distortionK1>
@@ -76,7 +77,7 @@
         </noise>
       </ray>
       <plugin name="gazebo_ros_head_hokuyo_controller" filename="libgazebo_ros_gpu_laser.so">
-        <topicName>/robotis/sensor/scan</topicName>
+        <topicName>/gazebo/$(arg robot_name)/sensor/scan</topicName>
         <frameName>lidar_link</frameName>
       </plugin>
     </sensor>
@@ -86,10 +87,10 @@
         <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
             <alwaysOn>true</alwaysOn>       
             <bodyName>imu_link</bodyName>
-            <topicName>/robotis/sensor/imu</topicName>
-            <serviceName>imu_service</serviceName>
+            <topicName>sensor/imu</topicName>
+            <serviceName>sensor/imu_service</serviceName>
             <gaussianNoise>0.0</gaussianNoise>
-            <updateRate>10.0</updateRate>
+            <updateRate>100.0</updateRate>
             <imu>
                 <noise>
                     <type>gaussian</type>
@@ -118,7 +119,7 @@
   <gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
       <updateRate>125.0</updateRate>
-      <topicName>/robotis/sensor/ft_left_foot</topicName>
+      <topicName>sensor/ft_left_foot</topicName>
       <jointName>l_leg_an_r</jointName>
     </plugin>
   </gazebo>
@@ -130,8 +131,32 @@
   <gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
       <updateRate>125.0</updateRate>
-      <topicName>/robotis/sensor/ft_right_foot</topicName>
+      <topicName>sensor/ft_right_foot</topicName>
       <jointName>r_leg_an_r</jointName>
+    </plugin>
+  </gazebo>
+    
+  <!-- Left hand -->
+  <gazebo reference="l_arm_wr_p">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+      <updateRate>125.0</updateRate>
+      <topicName>sensor/ft_left_wrist</topicName>
+      <jointName>l_arm_wr_p</jointName>
+    </plugin>
+  </gazebo>
+    
+  <!-- Right hand -->
+  <gazebo reference="r_arm_wr_p">
+    <provideFeedback>true</provideFeedback>
+  </gazebo>
+  <gazebo>
+    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+      <updateRate>125.0</updateRate>
+      <topicName>sensor/ft_right_wrist</topicName>
+      <jointName>r_arm_wr_p</jointName>
     </plugin>
   </gazebo>
 

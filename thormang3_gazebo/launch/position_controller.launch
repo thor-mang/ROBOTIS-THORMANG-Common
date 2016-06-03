@@ -15,8 +15,6 @@
 						     l_arm_wr_r_pos
 						     l_arm_wr_y_pos
 						     l_arm_wr_p_pos
-						     l_arm_grip_pos
-						     l_arm_grip_1_pos
 						     r_arm_sh_p1_pos
 						     r_arm_sh_r_pos
 						     r_arm_sh_p2_pos
@@ -24,8 +22,6 @@
 						     r_arm_wr_r_pos
 						     r_arm_wr_y_pos
 						     r_arm_wr_p_pos
-						     r_arm_grip_pos
-						     r_arm_grip_1_pos
 						     l_leg_hip_y_pos
 						     l_leg_hip_r_pos
 						     l_leg_hip_p_pos

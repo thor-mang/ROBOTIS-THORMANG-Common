@@ -35,9 +35,9 @@
 	<!-- left shoulder pitch 1 link -->
         <link name="l_arm_sh_p1_link">
     	  <collision>
-      	    <origin xyz="0 0 0" rpy="0 0 0"/>
+      	    <origin xyz="-0.005 0.04 -0.015" rpy="0 0 0"/>
       	    <geometry>
-              <mesh filename="package://thormang3_description/meshes/robotis_l_arm_sh_p1_link.stl" scale="0.001 0.001 0.001"/>
+              <box size="0.13 0.085 0.09" />
       	    </geometry>
     	  </collision>
 

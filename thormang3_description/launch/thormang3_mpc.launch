@@ -17,8 +17,8 @@
   <node name="robotis_joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="false"/>
     <param name="rate" value="125"/>
-    <rosparam param="source_list" if="$(arg use_present)">["robotis/present_joint_states"]</rosparam>
-    <rosparam param="source_list" unless="$(arg use_present)">["robotis/goal_joint_states"]</rosparam>
+    <rosparam param="source_list" if="$(arg use_present)">["robotis/joints/present_joint_states"]</rosparam>
+    <rosparam param="source_list" unless="$(arg use_present)">["robotis/joints/goal_joint_states"]</rosparam>
   </node>
 
   <!-- Combine joint values to TF-->

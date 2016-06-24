@@ -71,7 +71,7 @@
   <!-- chest_link -->
   <link name="chest_link">
     <collision>
-      <origin xyz="-0.01 0 0.11" rpy="0 0 0"/>
+      <origin xyz="-0.04 0 0.1" rpy="0 0 0"/>
       <geometry>
         <box size="0.2 0.25 0.23" />
       </geometry>

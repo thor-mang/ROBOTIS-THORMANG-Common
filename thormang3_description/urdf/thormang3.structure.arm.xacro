@@ -35,12 +35,23 @@
 	<!-- left shoulder pitch 1 link -->
         <link name="l_arm_sh_p1_link">
     	  <collision>
-      	    <origin xyz="-0.005 0.04 -0.015" rpy="0 0 0"/>
+      	    <origin xyz="-0.005 0.015 0" rpy="0 0 0"/>
       	    <geometry>
-              <box size="0.13 0.085 0.09" />
+              <box size="0.14 0.03 0.06" />
       	    </geometry>
     	  </collision>
-
+          <collision>
+      	    <origin xyz="0.06 0.04 -0.02" rpy="-0.8 0 0"/>
+      	    <geometry>
+              <box size="0.02 0.1 0.05" />
+      	    </geometry>
+    	  </collision>
+          <collision>
+      	    <origin xyz="-0.06 0.04 -0.02" rpy="-0.8 0 0"/>
+      	    <geometry>
+              <box size="0.02 0.1 0.05" />
+      	    </geometry>
+    	  </collision>
    	  <visual>
       	    <origin xyz="0 0 0" rpy="0 0 0"/>
       	    <geometry>
@@ -71,9 +82,9 @@
 	<!-- left shoulder roll link -->
         <link name="l_arm_sh_r_link">
     	  <collision>
-      	     <origin xyz="0 0 0" rpy="0 0 0"/>
+      	     <origin xyz="-0.055 0.0 0.0" rpy="0 0 0"/>
       	    <geometry>
-              <mesh filename="package://thormang3_description/meshes/robotis_l_arm_sh_r_link.stl" scale="0.001 0.001 0.001"/>
+              <box size="0.11 0.06 0.06" />
       	    </geometry>
     	  </collision>
 
@@ -107,9 +118,9 @@
 	<!-- left shoulder pitch2 link -->
         <link name="l_arm_sh_p2_link">
     	  <collision>
-      	    <origin xyz="0 0 0" rpy="0 0 0"/>
+      	    <origin xyz="0.0 0.055 0.0" rpy="0 0 0"/>
       	    <geometry>
-              <mesh filename="package://thormang3_description/meshes/robotis_l_arm_sh_p2_link.stl" scale="0.001 0.001 0.001"/>
+              <box size="0.06 0.11 0.06" />
       	    </geometry>
     	  </collision>
 

@@ -3,8 +3,8 @@
 <launch>    
     <!-- lidar -->
     <node pkg="urg_node" type="urg_node" name="lidar_chest_urg_node" output="screen">
-        <param name="frame_id" value="lidar_link" />
-        <param name="ip_address" value="10.17.3.31" />
+        <param name="frame_id" value="head_link_hokuyo_laser_frame" />
+        <param name="ip_address" value="192.168.1.20" />
         <param name="publish_multiecho" value="false" />
         <!-- <param name="angle_min" value="-1.5" /> -->
         <!-- <param name="angle_max" value="1.5" /> -->

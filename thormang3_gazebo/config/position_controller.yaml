@@ -50,16 +50,6 @@
     joint: l_arm_wr_p
     pid: {p: 7000.0, i: 0.1, d: 400.0}
 
-  l_arm_grip_pos:
-    type: effort_controllers/JointPositionController
-    joint: l_arm_grip
-    pid: {p: 7000.0, i: 0.1, d: 300.0}
-
-  l_arm_grip_1_pos:
-    type: effort_controllers/JointPositionController
-    joint: l_arm_grip_1
-    pid: {p: 7000.0, i: 0.1, d: 300.0}
-
   # Right Arm -----
 
   r_arm_sh_p1_pos:
@@ -96,16 +86,6 @@
     type: effort_controllers/JointPositionController
     joint: r_arm_wr_p
     pid: {p: 7000.0, i: 0.1, d: 400.0}
-
-  r_arm_grip_pos:
-    type: effort_controllers/JointPositionController
-    joint: r_arm_grip
-    pid: {p: 7000.0, i: 0.1, d: 300.0}
-
-  r_arm_grip_1_pos:
-    type: effort_controllers/JointPositionController
-    joint: r_arm_grip_1
-    pid: {p: 7000.0, i: 0.1, d: 300.0}
 
   # Left Leg -----
 

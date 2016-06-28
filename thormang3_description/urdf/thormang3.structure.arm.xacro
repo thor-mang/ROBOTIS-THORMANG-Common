@@ -106,7 +106,7 @@
 
 	<!-- shoulder pitch 2 joint -->
         <joint name="${prefix}_arm_sh_p2" type="revolute">
-          <axis xyz="0 1 0" />		
+          <axis xyz="0 ${reflect} 0" />		
           <origin xyz="-0.057 ${reflect * 0.033} 0.0" rpy="0 0 0"/>
           <parent link="${prefix}_arm_sh_r_link"/>
           <child link="${prefix}_arm_sh_p2_link"/>

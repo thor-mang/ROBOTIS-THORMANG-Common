@@ -73,9 +73,44 @@
     <collision>
       <origin xyz="-0.045 0 0.1" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.25 0.20" />
+        <box size="0.15 0.25 0.20" />
       </geometry>
     </collision>
+    
+    <collision>
+      <origin xyz="0 0 0.077" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.2 0.15" />
+      </geometry>
+    </collision>
+    
+    <collision>
+      <origin xyz="0 0 0.077" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.2 0.15" />
+      </geometry>
+    </collision>
+    
+    <collision>
+      <origin xyz="0 -0.115 0.16" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.064 0.126 0.064" />
+      </geometry>
+    </collision>    
+    
+    <collision>
+      <origin xyz="0 0.115 0.16" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.064 0.126 0.064" />
+      </geometry>
+    </collision>   
+    
+    <collision>
+      <origin xyz="0 0.0 0.2125" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.064 0.064 0.03" />
+      </geometry>
+    </collision>  
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>

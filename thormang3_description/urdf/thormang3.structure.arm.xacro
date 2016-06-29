@@ -26,7 +26,6 @@
           <origin xyz="0.0 ${reflect * 0.177-offset} 0.16" rpy="0 0 0"/>
           <parent link="${parent}"/>
           <child link="${prefix}_arm_sh_p1_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
 	  <xacro:if value="${reflect - 1}">
            <limit velocity="6.5" effort="1000" lower="${-pi}" upper="${pi*0.5}" />
 	  </xacro:if>
@@ -79,7 +78,12 @@
           <origin xyz="0.057 ${reflect * 0.060} -0.039" rpy="0 0 0"/>
           <parent link="${prefix}_arm_sh_p1_link"/>
           <child link="${prefix}_arm_sh_r_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-1.16}" upper="${pi*0.75}" />
+	  <xacro:if value="${reflect - 1}">
+           <limit velocity="6.5" effort="1000" lower="-1.16" upper="${pi*0.75}" />
+	  </xacro:if>
+	  <xacro:unless value="${reflect - 1}">
+	    <limit velocity="6.5" effort="1000" lower="${-pi*0.75}" upper="1.16" />
+	  </xacro:unless>
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="${prefix}_arm_sh_r" />

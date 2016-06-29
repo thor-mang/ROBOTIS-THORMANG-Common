@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">	
 
-    <xacro:property name="pi" value="3.141592654" />
     <xacro:include filename="$(find hector_components_description)/urdf/hector_multisensor_head.urdf.xacro" /> 
 
     <xacro:macro name="thormang3_head" params="parent">

@@ -47,7 +47,7 @@
           <origin xyz="0.0 -0.045 0.039" rpy="0 0 0"/>
           <parent link="head_y_link"/>
           <child link="head_p_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
+          <limit velocity="6.5" effort="1000" lower="-0.745" upper="1.301" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="head_p" />

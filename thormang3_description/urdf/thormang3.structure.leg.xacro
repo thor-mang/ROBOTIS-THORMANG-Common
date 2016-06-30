@@ -224,23 +224,36 @@
         </link>
 
 	<!-- left ft joint -->
-        <joint name="l_leg_ft" type="fixed">
+	<!--use "fixed" revolute joint for FT sensor simulation-->
+	<joint name="l_leg_ft" type="revolute">
           <origin xyz="-0.057 0.0 -0.087" rpy="0 0 0"/>
           <parent link="l_leg_an_r_link"/>
+          <child link="l_foot_ft_link"/>
+	  <limit velocity="6.5" effort="1000" lower="0" upper="0" />
+        </joint> 
+	
+	<!-- left foot ft link -->
+        <link name="l_foot_ft_link">
+        </link>
+
+	<!-- left ft fixed joint -->
+        <joint name="l_leg_ft_fixed" type="fixed">
+	  <origin xyz="0 0.0 -0.0275" rpy="0 0 0"/>
+          <parent link="l_foot_ft_link"/>
           <child link="l_leg_foot_link"/>
         </joint> 
 
 	<!-- left foot link -->
         <link name="l_leg_foot_link">
     	  <collision>
-      	    <origin xyz="0 0.014 -0.02" rpy="0 0 0"/>
+      	    <origin xyz="0.0 0.014 0.0075" rpy="0 0 0"/>
       	    <geometry>
               <box size="0.22 0.15 0.015" />
       	    </geometry>
     	  </collision>
 
    	  <visual>
-      	    <origin xyz="0 0 0" rpy="0 0 0"/>
+	  <origin xyz="0 0.0 0.0275" rpy="0 0 0"/>
       	    <geometry>
               <mesh filename="package://thormang3_description/meshes/robotis_l_leg_foot.stl" scale="0.001 0.001 0.001"/>
       	    </geometry>
@@ -253,17 +266,6 @@
       	    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /> 
             <!-- <inertia ixx="0.00219" ixy="0.0" ixz="0.0" iyy="0.00433" iyz="0.00011" izz="0.00609" /> -->
     	  </inertial>
-        </link>
-
-	<!-- left ft fixed joint -->
-        <joint name="l_leg_ft_fixed" type="fixed">
-          <origin xyz="0.0 0.0 0.0" rpy="${pi} 0 0"/>
-          <parent link="l_leg_foot_link"/>
-          <child link="l_foot_ft_link"/>
-        </joint> 
-
-	<!-- left foot ft link -->
-        <link name="l_foot_ft_link">
         </link>
 
     </xacro:macro>

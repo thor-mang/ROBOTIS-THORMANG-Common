@@ -113,14 +113,14 @@
     
   <!-- FT sensors -->
   <!-- Left leg -->
-  <gazebo reference="l_leg_an_r">
+  <gazebo reference="l_leg_ft">
     <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
       <updateRate>125.0</updateRate>
       <topicName>/gazebo/$(arg robot_name)/sensor/ft/left_foot</topicName>
-      <jointName>l_leg_an_r</jointName>
+      <jointName>l_leg_ft</jointName>
     </plugin>
   </gazebo>
 

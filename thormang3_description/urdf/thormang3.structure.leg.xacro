@@ -43,7 +43,7 @@
 
 	<!-- left hip roll joint -->
         <joint name="${prefix}_leg_hip_r" type="revolute">
-          <axis xyz="-1 0 0" />		
+          <axis xyz="${-reflect} 0 0" />		
           <origin xyz="0.057 0.0 -0.075" rpy="0 0 0"/>
           <parent link="${prefix}_leg_hip_y_link"/>
           <child link="${prefix}_leg_hip_r_link"/>
@@ -116,11 +116,11 @@
 
 	<!-- left knee pitch joint -->
         <joint name="${prefix}_leg_kn_p" type="revolute">
-          <axis xyz="0 1 0" />		
+          <axis xyz="0 ${reflect} 0" />		
           <origin xyz="0.0 ${reflect * 0.06} -0.3" rpy="0 0 0"/>
           <parent link="${prefix}_leg_hip_p_link"/>
           <child link="${prefix}_leg_kn_p_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.1}" upper="${pi*0.7}" />
+          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="${prefix}_leg_kn_p" />
@@ -152,7 +152,7 @@
 
 	<!-- left ankle pitch joint -->
         <joint name="${prefix}_leg_an_p" type="revolute">
-          <axis xyz="0 -1 0" />		
+          <axis xyz="0 ${-reflect} 0" />		
           <origin xyz="0.0 ${reflect * -0.06} -0.3" rpy="0 0 0"/>
           <parent link="${prefix}_leg_kn_p_link"/>
           <child link="${prefix}_leg_an_p_link"/>
@@ -189,7 +189,7 @@
 
 	<!-- left ankle roll joint -->
         <joint name="${prefix}_leg_an_r" type="revolute">
-          <axis xyz="1 0 0" />		
+          <axis xyz="${reflect} 0 0" />		
           <origin xyz="0.057 ${reflect * -0.033} 0.0" rpy="0 0 0"/>
           <parent link="${prefix}_leg_an_p_link"/>
           <child link="${prefix}_leg_an_r_link"/>

@@ -127,7 +127,7 @@
 	<!-- shoulder pitch2 link -->
         <link name="${prefix}_arm_sh_p2_link">
     	  <collision>
-      	    <origin xyz="0.0 ${reflect * 0.06} 0.0" rpy="0 0 0"/>
+      	    <origin xyz="0.0 ${reflect * 0.075} 0.0" rpy="0 0 0"/>
       	    <geometry>
               <box size="0.06 0.14 0.11" />
       	    </geometry>
@@ -189,7 +189,7 @@
 	  <collision>
       	    <origin xyz="0.08 ${reflect * 0.03} -0.0575" rpy="0 0 0"/>
       	    <geometry>
-              <box size="0.18 0.06 0.06" />
+              <box size="0.17 0.06 0.06" />
       	    </geometry>
     	  </collision>
 

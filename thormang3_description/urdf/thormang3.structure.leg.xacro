@@ -47,7 +47,7 @@
           <origin xyz="0.057 0.0 -0.075" rpy="0 0 0"/>
           <parent link="${prefix}_leg_hip_y_link"/>
           <child link="${prefix}_leg_hip_r_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.2}" upper="${pi*0.3}" />
+          <limit velocity="6.5" effort="1000" lower="${-pi*0.2}" upper="${pi*0.2}" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="${prefix}_leg_hip_r" />
@@ -84,7 +84,12 @@
           <origin xyz="-0.057 ${reflect * 0.033} 0.0" rpy="0 0 0"/>
           <parent link="${prefix}_leg_hip_r_link"/>
           <child link="${prefix}_leg_hip_p_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.4}" upper="${pi*0.4}" />
+	  <xacro:if value="${reflect - 1}">
+           <limit velocity="6.5" effort="1000" lower="${-pi*0.25}" upper="${pi*0.4}" />
+	  </xacro:if>
+	  <xacro:unless value="${reflect - 1}">
+	    <limit velocity="6.5" effort="1000" lower="${-pi*0.4}" upper="${pi*0.25}" />
+	  </xacro:unless>
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="${prefix}_leg_hip_p" />
@@ -120,7 +125,12 @@
           <origin xyz="0.0 ${reflect * 0.06} -0.3" rpy="0 0 0"/>
           <parent link="${prefix}_leg_hip_p_link"/>
           <child link="${prefix}_leg_kn_p_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.5}" />
+	  <xacro:if value="${reflect - 1}">
+           <limit velocity="6.5" effort="1000" lower="${-pi*0.6}" upper="${pi*0.45}" />
+	  </xacro:if>
+	  <xacro:unless value="${reflect - 1}">
+	    <limit velocity="6.5" effort="1000" lower="${-pi*0.45}" upper="${pi*0.6}" />
+	  </xacro:unless>	  
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="${prefix}_leg_kn_p" />
@@ -193,7 +203,7 @@
           <origin xyz="0.057 ${reflect * -0.033} 0.0" rpy="0 0 0"/>
           <parent link="${prefix}_leg_an_p_link"/>
           <child link="${prefix}_leg_an_r_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi*0.4}" />
+          <limit velocity="6.5" effort="1000" lower="${-pi*0.25}" upper="${pi*0.25}" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="${prefix}_leg_an_r" />

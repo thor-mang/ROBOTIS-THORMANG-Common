@@ -23,6 +23,8 @@ add_message_files(
 add_service_files(
   FILES
   GetJointModule.srv
+  SetCtrlModule.srv
+  SetJointCtrlModule.srv
 )
   #   Service1.srv
 #   Service2.srv

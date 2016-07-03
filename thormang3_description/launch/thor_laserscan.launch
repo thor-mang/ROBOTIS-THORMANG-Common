@@ -2,7 +2,7 @@
 
 <launch>    
   <!-- lidar -->
-  <node pkg="urg_node" type="urg_node" name="lidar_chest_urg_node" ns="sensor/lidar" output="screen">
+  <node pkg="urg_node" type="urg_node" name="lidar_chest_urg_node" ns="sensor/head_lidar" output="screen">
     <param name="frame_id" value="head_link_hokuyo_laser_frame" />
     <param name="ip_address" value="192.168.1.20" />
     <param name="publish_multiecho" value="false" />

@@ -27,10 +27,10 @@
           <parent link="${parent}"/>
           <child link="${prefix}_arm_sh_p1_link"/>
 	  <xacro:if value="${reflect - 1}">
-           <limit velocity="6.5" effort="1000" lower="${-pi}" upper="${pi*0.5}" />
+           <limit velocity="6.5" effort="1000" lower="${-pi*0.5}" upper="${pi}" />
 	  </xacro:if>
 	  <xacro:unless value="${reflect - 1}">
-	    <limit velocity="6.5" effort="1000" lower="${-0.5*pi}" upper="${pi}" />
+	    <limit velocity="6.5" effort="1000" lower="${-pi}" upper="${pi*0.5}" />
 	  </xacro:unless>
           <dynamics damping="0.1" friction="0.0" />
         </joint> 

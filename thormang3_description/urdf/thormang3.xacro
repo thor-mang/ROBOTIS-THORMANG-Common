@@ -18,7 +18,7 @@
 
 
   <!-- Used for fixing robot -->
-
+<!--
   <link name="world">
   </link>
 
@@ -36,7 +36,7 @@
     <parent link="base"/>
     <child link="pelvis_link"/>
   </joint>
-
+-->
   <!-- pelvis_link -->
   <link name="pelvis_link">
     <collision>

@@ -10,7 +10,12 @@
   <url type="repository">https://github.com/ROBOTIS-GIT/ROBOTIS-THORMANG-Common</url>
   <url type="website">http://wiki.ros.org/thormang3_common</url>
   <buildtool_depend>catkin</buildtool_depend>
-  <run_depend>thormang3_description</run_depend>
-  <run_depend>thormang3_gazebo</run_depend>
+  <run_depend>thormang3_action_module_msgs</run_depend>
+  <run_depend>thormang3_feet_ft_module_msgs</run_depend>
+  <run_depend>thormang3_gripper_module_msgs</run_depend>
+  <run_depend>thormang3_manipulation_module_msgs</run_depend>
+  <run_depend>thormang3_offset_tuner_msgs</run_depend>
+  <run_depend>thormang3_walking_module_msgs</run_depend>
+  <run_depend>thormang3_wholebody_module_msgs</run_depend>
   <export><metapackage/></export>
 </package>

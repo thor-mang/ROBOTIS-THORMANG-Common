@@ -64,11 +64,11 @@ int main(int argc, char **argv)
   ros::init(argc, argv, "gazebo_gripper_publisher");
   ros::NodeHandle nh("~");
 
-  g_left_arm_grip_joint_pub = nh.advertise<std_msgs::Float64>("/thormang3/l_arm_grip_1_pos/command", 0);
-  g_right_arm_grip_joint_pub = nh.advertise<std_msgs::Float64>("/thormang3/r_arm_grip_1_pos/command", 0);
+  g_left_arm_grip_joint_pub = nh.advertise<std_msgs::Float64>("/thormang3/l_arm_grip_1_position/command", 0);
+  g_right_arm_grip_joint_pub = nh.advertise<std_msgs::Float64>("/thormang3/r_arm_grip_1_position/command", 0);
 
-  ros::Subscriber l_arm_grip_joint_sub = nh.subscribe("/thormang3/l_arm_grip_pos/command", 5, leftArmGripJointCallback);
-  ros::Subscriber r_arm_grip_joint_sub = nh.subscribe("/thormang3/r_arm_grip_pos/command", 5, rightArmGripJointCallback);
+  ros::Subscriber l_arm_grip_joint_sub = nh.subscribe("/thormang3/l_arm_grip_position/command", 5, leftArmGripJointCallback);
+  ros::Subscriber r_arm_grip_joint_sub = nh.subscribe("/thormang3/r_arm_grip_position/command", 5, rightArmGripJointCallback);
 
   ros::spin();
 

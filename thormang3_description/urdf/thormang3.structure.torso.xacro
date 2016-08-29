@@ -141,8 +141,8 @@
   <xacro:thormang3_arm parent="chest_link" prefix="l" reflect="1" />
   <xacro:thormang3_arm parent="chest_link" prefix="r" reflect="-1" />
 
-  <xacro:thormang3_l_leg parent="pelvis_link" />
-  <xacro:thormang3_r_leg parent="pelvis_link" />
+  <xacro:thormang3_leg parent="pelvis_link" prefix="l" reflect="1" />
+  <xacro:thormang3_leg parent="pelvis_link" prefix="r" reflect="-1" />
 
   <xacro:thormang3_head parent="chest_link" />
 

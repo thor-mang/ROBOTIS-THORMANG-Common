@@ -137,26 +137,26 @@
   </gazebo>
     
   <!-- Left hand -->
-  <gazebo reference="l_arm_wr_p">
+  <gazebo reference="l_arm_ft">
     <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
       <updateRate>125.0</updateRate>
       <topicName>/gazebo/$(arg robot_name)/sensor/ft/left_wrist</topicName>
-      <jointName>l_arm_wr_p</jointName>
+      <jointName>l_arm_ft</jointName>
     </plugin>
   </gazebo>
     
   <!-- Right hand -->
-  <gazebo reference="r_arm_wr_p">
+  <gazebo reference="r_arm_ft">
     <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo>
     <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
       <updateRate>125.0</updateRate>
       <topicName>/gazebo/$(arg robot_name)/sensor/ft/right_wrist</topicName>
-      <jointName>r_arm_wr_p</jointName>
+      <jointName>r_arm_ft</jointName>
     </plugin>
   </gazebo>
 

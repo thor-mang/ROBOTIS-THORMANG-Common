@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">	
-    <xacro:property name="pi" value="3.141592654" />
 
     <xacro:macro name="thormang3_leg" params="parent prefix reflect">
 

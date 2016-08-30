@@ -10,12 +10,12 @@
     <xacro:if value="$(arg use_hands)">
         <xacro:include filename="$(find thor_vt_hand_description)/urdf/vt_hand_tud.urdf.xacro.xml" />
 
-        <vt_hand_tud_macro parent="l_arm_wr_p_link" prefix="l" reflect="-1" >
-            <origin xyz="0.068 0.045 0" rpy="0 -1.57 3.14159"/>
+        <vt_hand_tud_macro parent="l_wrist_ft_link" prefix="l" reflect="-1" >
+            <origin xyz="0.013 0 0" rpy="0 -1.57 3.14159"/>
         </vt_hand_tud_macro>
 
-        <vt_hand_tud_macro parent="r_arm_wr_p_link" prefix="r" reflect="1" >
-            <origin xyz="0.068 -0.045 0" rpy="0 1.57 0"/>
+        <vt_hand_tud_macro parent="r_wrist_ft_link" prefix="r" reflect="1" >
+            <origin xyz="0.013 0 0" rpy="0 1.57 0"/>
         </vt_hand_tud_macro>
     </xacro:if>
 
@@ -272,6 +272,19 @@
             <!--<inertia ixx="0.00047" ixy="-0.00001" ixz="0.0" iyy="0.00042" iyz="0.0" izz="0.00058" />-->
     	  </inertial>
         </link>
+        
+    <!-- left ft joint -->
+    <!--use "fixed" revolute joint for FT sensor simulation-->
+        <joint name="l_arm_ft" type="revolute">
+          <origin xyz="0.055 0.045 0" rpy="0 0 0"/>
+          <parent link="l_arm_wr_p_link"/>
+          <child link="l_wrist_ft_link"/>
+          <limit velocity="6.5" effort="1000" lower="0" upper="0" />
+        </joint> 
+
+    <!-- right wrist ft link -->
+        <link name="l_wrist_ft_link">
+        </link>
 
     </xacro:macro>
 
@@ -526,9 +539,21 @@
       	    <mass value="0.087"/>
       	    <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
             <!--<inertia ixx="0.00047" ixy="0.00001" ixz="0.0" iyy="0.00042" iyz="0.0" izz="0.00058" />-->
-    	  </inertial>
+    	    </inertial>
         </link>
+        
+    <!-- right ft joint -->
+    <!--use "fixed" revolute joint for FT sensor simulation-->
+        <joint name="r_arm_ft" type="revolute">
+          <origin xyz="0.055 -0.045 0" rpy="0 0 0"/>
+          <parent link="r_arm_wr_p_link"/>
+          <child link="r_wrist_ft_link"/>
+          <limit velocity="6.5" effort="1000" lower="0" upper="0" />
+        </joint> 
 
+    <!-- right wrist ft link -->
+        <link name="r_wrist_ft_link">
+        </link>
     </xacro:macro>
 
 </robot>

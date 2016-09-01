@@ -10,11 +10,11 @@
         <xacro:include filename="$(find thor_vt_hand_description)/urdf/vt_hand_tud.urdf.xacro.xml" />
 
         <vt_hand_tud_macro parent="l_wrist_ft_link" prefix="l" reflect="-1" >
-            <origin xyz="0.013 0 0" rpy="0 -1.57 3.14159"/>
+            <origin xyz="0.013 0 0" rpy="0 ${pi} ${0.5 * pi}"/>
         </vt_hand_tud_macro>
 
         <vt_hand_tud_macro parent="r_wrist_ft_link" prefix="r" reflect="1" >
-            <origin xyz="0.013 0 0" rpy="0 1.57 0"/>
+            <origin xyz="0.013 0 0" rpy="0 ${pi} -${0.5 * pi}"/>
         </vt_hand_tud_macro>
     </xacro:if>
     
@@ -356,7 +356,7 @@
     <!--ft joint -->
     <!--use "fixed" revolute joint for FT sensor simulation-->
         <joint name="${prefix}_arm_ft" type="revolute">
-          <origin xyz="0.055 ${reflect * 0.045} 0" rpy="0 0 0"/>
+          <origin xyz="0.055 ${reflect * 0.045} 0" rpy="-${0.5 * pi} 0 ${0.5 * pi}"/>
           <parent link="${prefix}_arm_wr_p_link"/>
           <child link="${prefix}_wrist_ft_link"/>
           <limit velocity="6.5" effort="1000" lower="0" upper="0" />

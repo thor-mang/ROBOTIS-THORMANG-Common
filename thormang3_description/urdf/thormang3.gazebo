@@ -12,10 +12,10 @@
 
   <gazebo>
     <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">			
-      <frameName>map</frameName>
+      <frameName>world</frameName>
         <bodyName>pelvis_link</bodyName>
-        <topicName>odom</topicName>
-        <updateRate>100.0</updateRate>
+        <topicName>/gazebo/$(arg robot_name)/pelvis_odom</topicName>
+        <updateRate>125.0</updateRate>
     </plugin>
   </gazebo>	
 

@@ -2,8 +2,8 @@
 
 <launch>
     <!-- Robot Model -->
-    <param name="robot_description"
-    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+    <!--param name="robot_description"
+    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" /-->
 
     <!-- Show joint values -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

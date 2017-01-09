@@ -10,6 +10,7 @@
     </plugin>
   </gazebo>
 
+  <!-- p3d plugin -->
   <gazebo>
     <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">			
       <frameName>world</frameName>
@@ -19,38 +20,40 @@
     </plugin>
   </gazebo>	
 
-    <gazebo reference="cam_link">
-        <sensor type="camera" name="center_camera_gz">
-            <update_rate>30.0</update_rate>
-            <camera name="web_cam">
-                <horizontal_fov>1.3962634</horizontal_fov>
-                <image>
-                    <width>640</width>
-                    <height>480</height>
-                    <format>R8G8B8</format>
-                </image>
-                <clip>
-                    <near>0.02</near>
-                    <far>300</far>
-                </clip>
-            </camera>
-            <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
-                <alwaysOn>true</alwaysOn>
-                <updateRate>0.0</updateRate>
-                <cameraName>camera</cameraName>
-                <imageTopicName>/$(arg robot_name)/sensor/camera/image_raw</imageTopicName>
-                <cameraInfoTopicName>/$(arg robot_name)/sensor/camera/camera_info</cameraInfoTopicName>
-                <frameName>cam_link</frameName>
-                <hackBaseline>0.07</hackBaseline>
-                <distortionK1>0.0</distortionK1>
-                <distortionK2>0.0</distortionK2>
-                <distortionK3>0.0</distortionK3>
-                <distortionT1>0.0</distortionT1>
-                <distortionT2>0.0</distortionT2>
-            </plugin>
-        </sensor>
-    </gazebo>
+  <!-- camera plugin -->
+  <gazebo reference="cam_link">
+    <sensor type="camera" name="center_camera_gz">
+      <update_rate>30.0</update_rate>
+      <camera name="web_cam">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>640</width>
+          <height>480</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>camera</cameraName>
+        <imageTopicName>/$(arg robot_name)/sensor/camera/image_raw</imageTopicName>
+        <cameraInfoTopicName>/$(arg robot_name)/sensor/camera/camera_info</cameraInfoTopicName>
+        <frameName>cam_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
 
+  <!-- lidar plugin -->
   <gazebo reference="lidar_link">
     <sensor type="gpu_ray" name="head_hokuyo_sensor">
       <pose>0 0 0 0 0 0</pose>
@@ -83,33 +86,34 @@
     </sensor>
   </gazebo>
 
-    <gazebo>    
-        <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
-            <alwaysOn>true</alwaysOn>       
-            <bodyName>imu_link</bodyName>
-            <topicName>/gazebo/$(arg robot_name)/sensor/imu</topicName>
-            <serviceName>/gazebo/$(arg robot_name)/sensor/imu_service</serviceName>
-            <gaussianNoise>0.0</gaussianNoise>
-            <updateRate>100.0</updateRate>
-            <imu>
-                <noise>
-                    <type>gaussian</type>
-                    <rate>
-                        <mean>0.0</mean>
-                        <stddev>2e-4</stddev>
-                        <bias_mean>0.0000075</bias_mean>
-                        <bias_stddev>0.0000008</bias_stddev>
-                    </rate>
-                    <accel>
-                        <mean>0.0</mean>
-                        <stddev>1.7e-2</stddev>
-                        <bias_mean>0.1</bias_mean>
-                        <bias_stddev>0.001</bias_stddev>
-                    </accel>
-                </noise>
-            </imu>
-        </plugin>
-    </gazebo>
+  <!-- imu plugin -->
+  <gazebo>  
+    <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+      <alwaysOn>true</alwaysOn>    
+      <bodyName>imu_link</bodyName>
+      <topicName>/gazebo/$(arg robot_name)/sensor/imu</topicName>
+      <serviceName>/gazebo/$(arg robot_name)/sensor/imu_service</serviceName>
+      <gaussianNoise>0.0</gaussianNoise>
+      <updateRate>100.0</updateRate>
+      <imu>
+        <noise>
+          <type>gaussian</type>
+          <rate>
+            <mean>0.0</mean>
+            <stddev>2e-4</stddev>
+            <bias_mean>0.0000075</bias_mean>
+            <bias_stddev>0.0000008</bias_stddev>
+          </rate>
+          <accel>
+            <mean>0.0</mean>
+            <stddev>1.7e-2</stddev>
+            <bias_mean>0.1</bias_mean>
+            <bias_stddev>0.001</bias_stddev>
+          </accel>
+        </noise>
+      </imu>
+    </plugin>
+  </gazebo>
     
   <!-- FT sensors -->
   <!-- Left leg -->

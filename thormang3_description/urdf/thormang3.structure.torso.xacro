@@ -145,5 +145,58 @@
   <xacro:thormang3_leg parent="pelvis_link" prefix="r" reflect="-1" />
 
   <xacro:thormang3_head parent="chest_link" />
+  
+  <!-- left handle bar -->
+  <joint name="left_handle_bar" type="fixed">
+    <parent link="pelvis_link"/>
+    <child link="left_handle_bar_link"/>
+    <origin xyz="0.0 0 0.0" rpy="0 0 ${pi}"/>
+  </joint>
+  
+  <!-- left handle bar link -->
+  <link name="left_handle_bar_link">
+    <collision>
+      <origin xyz="0.0375 0.135 0.325" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </collision>
+    
+    <visual>
+      <origin xyz="0.0375 0.135 0.325" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>  
+  
+  <!-- right handle bar -->
+  <joint name="right_handle_bar" type="fixed">
+    <parent link="pelvis_link"/>
+    <child link="right_handle_bar_link"/>
+    <origin xyz="0.0 0 0.0" rpy="0 0 ${pi}"/>
+    <material name="grey"/>
+  </joint>
+  
+  <!-- right handle bar link -->
+  <link name="right_handle_bar_link">
+    <collision>
+      <origin xyz="0.0375 -0.135 0.325" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </collision>
+    
+    <visual>
+      <origin xyz="0.0375 -0.135 0.325" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </visual>
+  </link>    
 
 </robot>

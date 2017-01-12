@@ -110,7 +110,25 @@
       <geometry>
         <box size="0.064 0.064 0.03" />
       </geometry>
-    </collision>  
+    </collision> 
+    
+    <!-- left handle bar -->
+    <collision>
+      <origin xyz="-0.0375 0.135 0.155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </collision>
+    
+    <!-- right handle bar -->
+    <collision>
+      <origin xyz="-0.0375 -0.135 0.155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </collision>
 
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -119,6 +137,24 @@
       </geometry>
       <material name="grey"/>
     </visual>
+    
+    <!-- left handle bar -->
+    <visual>
+      <origin xyz="-0.0375 0.135 0.155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </visual>
+
+    <!-- right handle bar -->
+    <visual>
+      <origin xyz="-0.0375 -0.135 0.155" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.285 0.025 0.14" />
+      </geometry>
+      <material name="grey"/>
+    </visual>   
 
     <inertial>
       <origin xyz="-0.007 0.000 0.109" rpy="0 0 0"/>
@@ -145,58 +181,5 @@
   <xacro:thormang3_leg parent="pelvis_link" prefix="r" reflect="-1" />
 
   <xacro:thormang3_head parent="chest_link" />
-  
-  <!-- left handle bar -->
-  <joint name="left_handle_bar" type="fixed">
-    <parent link="chest_link"/>
-    <child link="left_handle_bar_link"/>
-    <origin xyz="0.0 0 0.0" rpy="0 0 ${pi}"/>
-  </joint>
-  
-  <!-- left handle bar link -->
-  <link name="left_handle_bar_link">
-    <collision>
-      <origin xyz="0.0375 0.135 0.155" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.285 0.025 0.14" />
-      </geometry>
-      <material name="grey"/>
-    </collision>
-    
-    <visual>
-      <origin xyz="0.0375 0.135 0.155" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.285 0.025 0.14" />
-      </geometry>
-      <material name="grey"/>
-    </visual>
-  </link>  
-  
-  <!-- right handle bar -->
-  <joint name="right_handle_bar" type="fixed">
-    <parent link="chest_link"/>
-    <child link="right_handle_bar_link"/>
-    <origin xyz="0.0 0 0.0" rpy="0 0 ${pi}"/>
-    <material name="grey"/>
-  </joint>
-  
-  <!-- right handle bar link -->
-  <link name="right_handle_bar_link">
-    <collision>
-      <origin xyz="0.0375 -0.135 0.155" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.285 0.025 0.14" />
-      </geometry>
-      <material name="grey"/>
-    </collision>
-    
-    <visual>
-      <origin xyz="0.0375 -0.135 0.155" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.285 0.025 0.14" />
-      </geometry>
-      <material name="grey"/>
-    </visual>
-  </link>    
 
 </robot>

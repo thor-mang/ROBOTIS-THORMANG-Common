@@ -9,10 +9,8 @@ Panels:
         - /RobotModel1/Links1
         - /TF1/Frames1
         - /TF1/Tree1
-        - /PointCloud2 - Realsense1
-        - /PointCloud2 - Lidar1
-        - /LaserScan - Lidar1
         - /Camera - Web HD1
+        - /PointCloud21
       Splitter Ratio: 0.568878
     Tree Height: 775
   - Class: rviz/Selection
@@ -65,10 +63,6 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         cam_link:
           Alpha: 1
           Show Axes: false
@@ -280,10 +274,6 @@ Visualization Manager:
           Show Trail: false
           Value: true
         realsense_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        world:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -294,162 +284,19 @@ Visualization Manager:
       Value: true
       Visual Enabled: true
     - Class: rviz/TF
-      Enabled: true
+      Enabled: false
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        cam_link:
-          Value: true
-        chest_link:
-          Value: true
-        head_p_link:
-          Value: true
-        head_y_link:
-          Value: true
-        imu_link:
-          Value: true
-        l_arm_el_y_link:
-          Value: true
-        l_arm_end_link:
-          Value: true
-        l_arm_grip_1_link:
-          Value: true
-        l_arm_grip_link:
-          Value: true
-        l_arm_sh_p1_link:
-          Value: true
-        l_arm_sh_p2_link:
-          Value: true
-        l_arm_sh_r_link:
-          Value: true
-        l_arm_wr_p_link:
-          Value: true
-        l_arm_wr_r_link:
-          Value: true
-        l_arm_wr_y_link:
-          Value: true
-        l_foot_ft_link:
-          Value: true
-        l_leg_an_p_link:
-          Value: true
-        l_leg_an_r_link:
-          Value: true
-        l_leg_foot_link:
-          Value: true
-        l_leg_hip_p_link:
-          Value: true
-        l_leg_hip_r_link:
-          Value: true
-        l_leg_hip_y_link:
-          Value: true
-        l_leg_kn_p_link:
-          Value: true
-        lidar_link:
-          Value: true
-        pelvis_link:
-          Value: true
-        r_arm_el_y_link:
-          Value: true
-        r_arm_end_link:
-          Value: true
-        r_arm_grip_1_link:
-          Value: true
-        r_arm_grip_link:
-          Value: true
-        r_arm_sh_p1_link:
-          Value: true
-        r_arm_sh_p2_link:
-          Value: true
-        r_arm_sh_r_link:
-          Value: true
-        r_arm_wr_p_link:
-          Value: true
-        r_arm_wr_r_link:
-          Value: true
-        r_arm_wr_y_link:
-          Value: true
-        r_foot_ft_link:
-          Value: true
-        r_leg_an_p_link:
-          Value: true
-        r_leg_an_r_link:
-          Value: true
-        r_leg_foot_link:
-          Value: true
-        r_leg_hip_p_link:
-          Value: true
-        r_leg_hip_r_link:
-          Value: true
-        r_leg_hip_y_link:
-          Value: true
-        r_leg_kn_p_link:
-          Value: true
-        realsense_link:
-          Value: true
       Marker Scale: 0.5
       Name: TF
       Show Arrows: false
       Show Axes: false
       Show Names: false
       Tree:
-        pelvis_link:
-          chest_link:
-            head_y_link:
-              head_p_link:
-                cam_link:
-                  {}
-                lidar_link:
-                  {}
-                realsense_link:
-                  {}
-            l_arm_sh_p1_link:
-              l_arm_sh_r_link:
-                l_arm_sh_p2_link:
-                  l_arm_el_y_link:
-                    l_arm_wr_r_link:
-                      l_arm_wr_y_link:
-                        l_arm_wr_p_link:
-                          l_arm_end_link:
-                            {}
-                          l_arm_grip_1_link:
-                            {}
-                          l_arm_grip_link:
-                            {}
-            r_arm_sh_p1_link:
-              r_arm_sh_r_link:
-                r_arm_sh_p2_link:
-                  r_arm_el_y_link:
-                    r_arm_wr_r_link:
-                      r_arm_wr_y_link:
-                        r_arm_wr_p_link:
-                          r_arm_end_link:
-                            {}
-                          r_arm_grip_1_link:
-                            {}
-                          r_arm_grip_link:
-                            {}
-          imu_link:
-            {}
-          l_leg_hip_y_link:
-            l_leg_hip_r_link:
-              l_leg_hip_p_link:
-                l_leg_kn_p_link:
-                  l_leg_an_p_link:
-                    l_leg_an_r_link:
-                      l_leg_foot_link:
-                        l_foot_ft_link:
-                          {}
-          r_leg_hip_y_link:
-            r_leg_hip_r_link:
-              r_leg_hip_p_link:
-                r_leg_kn_p_link:
-                  r_leg_an_p_link:
-                    r_leg_an_r_link:
-                      r_leg_foot_link:
-                        r_foot_ft_link:
-                          {}
+        {}
       Update Interval: 0
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
@@ -462,7 +309,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: RGB8
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 4096
@@ -478,12 +325,12 @@ Visualization Manager:
       Topic: /camera/depth/points
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 2.9002
-        Min Value: -0.360722
+        Max Value: 2.42942
+        Min Value: -0.788976
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -502,7 +349,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.03
+      Size (m): 0.02
       Style: Boxes
       Topic: /robotis/sensor/assembled_scan
       Use Fixed Frame: true
@@ -552,36 +399,13 @@ Visualization Manager:
         InteractiveMarkers: true
         LaserScan - Lidar: false
         MarkerArray: true
+        PointCloud2: true
         PointCloud2 - Lidar: false
         PointCloud2 - Realsense: false
         RobotModel: false
         TF: false
         Value: true
-        WrenchStamped - Left: true
-        WrenchStamped - Right: true
       Zoom Factor: 1
-    - Alpha: 1
-      Arrow Scale: 0.05
-      Arrow Width: 0.3
-      Class: rviz/WrenchStamped
-      Enabled: false
-      Force Color: 204; 51; 51
-      History Length: 10
-      Name: WrenchStamped - Right
-      Topic: /robotis/sensor/ft_right_foot/scaled
-      Torque Color: 204; 204; 51
-      Value: false
-    - Alpha: 1
-      Arrow Scale: 0.05
-      Arrow Width: 0.3
-      Class: rviz/WrenchStamped
-      Enabled: false
-      Force Color: 204; 51; 51
-      History Length: 10
-      Name: WrenchStamped - Left
-      Topic: /robotis/sensor/ft_left_foot/scaled
-      Torque Color: 204; 204; 51
-      Value: false
     - Alpha: 0.6
       Class: rviz_plugin_tutorials/Imu
       Color: 204; 51; 204
@@ -607,6 +431,35 @@ Visualization Manager:
         {}
       Queue Size: 100
       Value: true
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz/PointCloud2
+      Color: 255; 255; 255
+      Color Transformer: RGB8
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
+      Name: PointCloud2
+      Position Transformer: XYZ
+      Queue Size: 10
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.01
+      Style: Flat Squares
+      Topic: /realsense/depth_registered/points
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 113; 113; 113
@@ -631,22 +484,22 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.81989
+      Distance: 5.98322
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.370907
-        Y: -0.036204
-        Z: 0.71514
+        X: 0.101147
+        Y: 0.0129192
+        Z: -0.0827331
       Name: Current View
       Near Clip Distance: 0.01
-      Pitch: 0.774797
+      Pitch: 0.4998
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.74679
+      Yaw: 3.10725
     Saved: ~
 Window Geometry:
   Camera - Web HD:

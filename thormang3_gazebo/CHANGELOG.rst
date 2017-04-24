@@ -2,6 +2,11 @@
 Changelog for package thormang3_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.2 (2017-04-24)
+-----------
+* updated the simulation
+* Contributors: SCH
+
 0.1.1 (2016-08-31)
 -----------
 * none
@@ -11,4 +16,4 @@ Changelog for package thormang3_gazebo
 * modified gripper pub
 * changed controller name and topic name
 * applied ROS C++ Coding Style
-* Contributors: Jay-Song, ROBOTIS-zerom, s-changhyun
+* Contributors: Jay Song, Zerom, SCH

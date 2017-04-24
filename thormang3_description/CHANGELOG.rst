@@ -2,6 +2,13 @@
 Changelog for package thormang3_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.2 (2017-04-24)
+-----------
+* modified rviz config file
+* updated simulation
+* updated config files
+* Contributors: Kayman, SCH
+
 0.1.1 (2016-08-31)
 -----------
 * modified rviz config file

@@ -2,6 +2,11 @@
 Changelog for package thormang3_gazebo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.3 (2017-05-23)
+-----------
+* updated the URDF file of Thormang3
+* Contributors: SCH
+
 0.1.2 (2017-04-24)
 -----------
 * updated the simulation

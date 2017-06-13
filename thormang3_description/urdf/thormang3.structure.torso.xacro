@@ -216,7 +216,7 @@
   <joint name="imu_fixed" type="fixed">
     <parent link="pelvis_link"/>
     <child link="imu_link"/>
-    <origin xyz="0.03 0 0.0" rpy="0 0 ${pi}"/>
+    <origin xyz="0.03 0 0.0" rpy="${pi} 0 ${-0.5*pi}"/>
   </joint>
 
   <link name="imu_link">

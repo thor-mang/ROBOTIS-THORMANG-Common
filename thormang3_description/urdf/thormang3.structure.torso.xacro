@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
   
   <!-- some parameters -->
-  <xacro:property name="pi" value="3.141592" />
-
   <xacro:include filename="$(find thormang3_description)/urdf/thormang3.structure.arm.xacro" />
   <xacro:include filename="$(find thormang3_description)/urdf/thormang3.structure.leg.xacro" />
   <xacro:include filename="$(find thormang3_description)/urdf/thormang3.structure.head.xacro" />

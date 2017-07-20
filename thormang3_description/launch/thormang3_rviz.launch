@@ -1,7 +1,13 @@
 <?xml version="1.0" ?>
 <launch>
-  <param name="robot_description"
-    command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+  <arg name="robot_name" default="thormang3" />
+  <arg name="use_hands" default="$(optenv USE_HANDS false)" />
+  <arg name="pinned" default="false"/>
+
+  <param name="robot_description" command="$(find xacro)/xacro.py --inorder '$(find thormang3_description)/urdf/thormang3.xacro'
+    robot_name:=$(arg robot_name)
+    use_hands:=$(arg use_hands)
+    pinned:=$(arg pinned)" />
 
   <!-- send joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

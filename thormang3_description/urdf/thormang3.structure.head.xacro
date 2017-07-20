@@ -83,7 +83,7 @@
         </joint> 
 
 	
-	<hector_multisensor_head_macro parent="head_y_link"  name="head" scaling="0.001">
+	<hector_multisensor_head_macro parent="head_y_link" name="head" scaling="0.001">
 	  <origin xyz="0.0 0.0 0.0" rpy="${M_PI*0.5} 0.0 ${M_PI*0.5}"/>
 	  <!-- Calibrated origin of the laser scanner-->
 	   <xacro:include filename="$(find thormang3_description)/calibration/multisensor_head_calibration.urdf.xacro" />  

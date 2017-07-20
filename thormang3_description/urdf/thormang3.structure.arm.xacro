@@ -7,15 +7,15 @@
 
     <!-- VT hands description -->
     <xacro:if value="$(arg use_hands)">
-      <xacro:include filename="$(find thor_vt_hand_description)/urdf/vt_hand_tud.urdf.xacro.xml" />
+      <xacro:include filename="$(find thor_vt_hand_description)/urdf/vt_hand_tud.urdf.xacro" />
 
-      <vt_hand_tud_macro parent="l_wrist_ft_link" prefix="l" reflect="-1" >
+      <xacro:vt_hand_tud_macro parent="l_wrist_ft_link" prefix="l" reflect="-1" >
         <origin xyz="0 0 0.013" rpy="0 0 -${0.5 * pi}"/>
-      </vt_hand_tud_macro>
+      </xacro:vt_hand_tud_macro>
 
-      <vt_hand_tud_macro parent="r_wrist_ft_link" prefix="r" reflect="1" >
+      <xacro:vt_hand_tud_macro parent="r_wrist_ft_link" prefix="r" reflect="1" >
         <origin xyz="0 0 0.013" rpy="0 0 -${0.5 * pi}"/>
-      </vt_hand_tud_macro>
+      </xacro:vt_hand_tud_macro>
     </xacro:if>
     
     <xacro:macro name="thormang3_arm" params="parent prefix reflect">

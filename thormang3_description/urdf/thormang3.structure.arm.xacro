@@ -119,7 +119,7 @@
           <origin xyz="-0.057 ${reflect * 0.033} 0.0" rpy="0 0 0"/>
           <parent link="${prefix}_arm_sh_r_link"/>
           <child link="${prefix}_arm_sh_p2_link"/>
-          <limit velocity="6.5" effort="1000" lower="${-pi}" upper="${pi}" />
+          <limit velocity="6.5" effort="1000" lower="${-pi+0.001}" upper="${pi-0.001}" />
           <dynamics damping="0.1" friction="0.0" />
         </joint> 
         <xacro:insert_transmission name="${prefix}_arm_sh_p2" />

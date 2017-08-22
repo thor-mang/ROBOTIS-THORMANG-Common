@@ -10,13 +10,13 @@
   <remap from="joint_states" to="joints/joint_states" />
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find thormang3_description)/urdf/thormang3.xacro'
       robot_name:=$(arg robot_name)
       use_hands:=$(arg use_hands)
       pinned:=$(arg pinned)" />
       
   <!-- HACK: Load the URDF into the ROS Parameter Server at global namespace due to issues with moveit and gazebo controller spawner -->
-  <param name="/robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'
+  <param name="/robot_description" command="$(find xacro)/xacro --inorder '$(find thormang3_description)/urdf/thormang3.xacro'
       robot_name:=$(arg robot_name)
       use_hands:=$(arg use_hands)
       pinned:=$(arg pinned)" />

@@ -4,7 +4,7 @@
   <arg name="robot_name" default="thormang3" />
   <arg name="use_hands" default="$(optenv USE_HANDS false)" />
 
-  <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find thormang3_description)/urdf/thormang3.xacro'
     robot_name:=$(arg robot_name)
     use_hands:=$(arg use_hands)" />
 </launch>

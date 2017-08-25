@@ -97,7 +97,7 @@
         <updateRateHZ>125.0</updateRateHZ>
         <gaussianNoise>0.0001</gaussianNoise>
         <xyzOffset>0.0 0.0 0.0</xyzOffset>
-        <rpyOffset>${pi} 0.0 ${pi}</rpyOffset>
+        <rpyOffset>0.0 0.0 ${pi}</rpyOffset>
       </plugin>
     </sensor>
   </gazebo>

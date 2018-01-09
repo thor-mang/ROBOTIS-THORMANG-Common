@@ -13,7 +13,7 @@
   <!-- p3d plugin -->
   <gazebo>
     <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">			
-      <frameName>world</frameName>
+      <frameName>odom</frameName>
         <bodyName>pelvis_link</bodyName>
         <topicName>/gazebo/$(arg robot_name)/pelvis_odom</topicName>
         <updateRate>125.0</updateRate>

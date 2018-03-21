@@ -5,6 +5,7 @@ lib
 msg_gen
 srv_gen
 qtcreator-build
+thormang3_description/urdf/johnny5.urdf
 *~
 *.backup
 *.user

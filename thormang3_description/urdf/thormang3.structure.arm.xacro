@@ -3,19 +3,40 @@
 
   <xacro:property name="offset" value="0.0" />
 
-  <xacro:arg name="use_hands" default="false" />
+  <xacro:arg name="l_hand_type" default="none" />
+  <xacro:arg name="r_hand_type" default="none" />
 
-  <!-- VT hands description -->
-  <xacro:if value="$(arg use_hands)">
+  <xacro:property name="l_hand_type" value="$(arg l_hand_type)" />
+  <xacro:property name="r_hand_type" value="$(arg r_hand_type)" />
+  
+  <!-- add VT hands (optional) -->
+  <xacro:if value="${l_hand_type == 'vt_hand'}">
     <xacro:include filename="$(find thor_vt_hand_description)/urdf/vt_hand_tud.urdf.xacro" />
-
     <xacro:vt_hand_tud_macro parent="l_wrist_ft_link" prefix="l" reflect="-1" >
       <origin xyz="0 0 0.013" rpy="0 0 -${0.5 * pi}" />
     </xacro:vt_hand_tud_macro>
+  </xacro:if>
 
+  <xacro:if value="${r_hand_type == 'vt_hand'}">
+    <xacro:include filename="$(find thor_vt_hand_description)/urdf/vt_hand_tud.urdf.xacro" />
     <xacro:vt_hand_tud_macro parent="r_wrist_ft_link" prefix="r" reflect="1" >
       <origin xyz="0 0 0.013" rpy="0 0 -${0.5 * pi}" />
     </xacro:vt_hand_tud_macro>
+  </xacro:if>
+
+  <!-- add RH_P12_RN gripper (optional) -->
+  <xacro:if value="${l_hand_type == 'rh_p12_rn'}">
+    <xacro:include filename="$(find rh_p12_rn_description)/urdf/rh_p12_rn.urdf.xacro" />
+    <xacro:rh_p12_rn_macro parent="l_wrist_ft_link" prefix="l" reflect="-1" >
+      <origin xyz="0 0 0.013" rpy="0 0 -${0.5 * pi}" />
+    </xacro:rh_p12_rn_macro>
+  </xacro:if>
+
+  <xacro:if value="${r_hand_type == 'rh_p12_rn'}">
+    <xacro:include filename="$(find rh_p12_rn_description)/urdf/rh_p12_rn.urdf.xacro" />
+    <xacro:rh_p12_rn_macro parent="r_wrist_ft_link" prefix="r" reflect="1" >
+      <origin xyz="0 0 0.013" rpy="0 0 -${0.5 * pi}" />
+    </xacro:rh_p12_rn_macro>
   </xacro:if>
   
   <xacro:macro name="thormang3_arm" params="parent prefix reflect">

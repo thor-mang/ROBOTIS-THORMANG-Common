@@ -86,50 +86,21 @@
     </sensor>
   </gazebo>
   <!-- imu plugin -->
-  <gazebo reference="imu_link">
-    <sensor name="imu" type="imu">
-      <imu/>
-      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <robotNamespace/>
-        <frameName>imu_link</frameName>
-        <topicName>/gazebo/johnny5/sensor/imu</topicName>
-        <updateRateHZ>125.0</updateRateHZ>
-        <gaussianNoise>0.0001</gaussianNoise>
-        <xyzOffset>0.0 0.0 0.0</xyzOffset>
-        <rpyOffset>3.14159265359 0.0 3.14159265359</rpyOffset>
-      </plugin>
-    </sensor>
-  </gazebo>
-  <!--gazebo>  
-    <plugin name="imu_plugin" filename="libhector_gazebo_ros_imu.so">
-      <alwaysOn>true</alwaysOn>    
-      <bodyName>imu_link</bodyName>
-      <frameId>imu_link</frameId>
-      <topicName>/gazebo/$(arg robot_name)/sensor/imu</topicName>
-      <serviceName>/gazebo/$(arg robot_name)/sensor/imu_service</serviceName>
-      <gaussianNoise>0.0</gaussianNoise>
+  <gazebo>
+    <plugin filename="libhector_gazebo_ros_imu.so" name="imu_link">
+      <alwaysOn>true</alwaysOn>
       <updateRate>125.0</updateRate>
-      <xyzOffset>0.0 0.0 0.0</xyzOffset>
-      <rpyOffset>${pi} 0.0 ${pi}</rpyOffset>
-      <imu>
-        <noise>
-          <type>gaussian</type>
-          <rate>
-            <mean>0.0</mean>
-            <stddev>2e-4</stddev>
-            <bias_mean>0.0000075</bias_mean>
-            <bias_stddev>0.0000008</bias_stddev>
-          </rate>
-          <accel>
-            <mean>0.0</mean>
-            <stddev>1.7e-2</stddev>
-            <bias_mean>0.1</bias_mean>
-            <bias_stddev>0.001</bias_stddev>
-          </accel>
-        </noise>
-      </imu>
+      <bodyName>imu_link</bodyName>
+      <topicName>/gazebo/johnny5/sensor/imu</topicName>
+      <accelDrift>0.0 0.0 0.0</accelDrift>
+      <accelGaussianNoise>0.1 0.1 0.1</accelGaussianNoise>
+      <rateDrift>0.0 0.0 0.0</rateDrift>
+      <rateGaussianNoise>0.05 0.05 0.05</rateGaussianNoise>
+      <headingDrift>0.0</headingDrift>
+      <headingGaussianNoise>0.05</headingGaussianNoise>
+      <rpyOffsets>0.0 0.0 3.14159265359</rpyOffsets>
     </plugin>
-  </gazebo-->
+  </gazebo>
   <!-- FT sensors -->
   <!-- Left leg -->
   <gazebo reference="l_leg_ft">
@@ -683,7 +654,7 @@
     <axis xyz="1 0 0"/>
     <origin rpy="-1.315 0 0" xyz="-0.036 0.0361 0.0596"/>
     <limit effort="10" lower="0" upper="2.685" velocity="10"/>
-    <!--<dynamics damping="0.1"/>-->
+    <dynamics damping="0.0" friction="0.1"/>
   </joint>
   <joint name="l_f0_j0" type="revolute">
     <parent link="l_palm"/>
@@ -691,8 +662,9 @@
     <axis xyz="1 0 0"/>
     <origin rpy="-1.315 0 0" xyz="0.0355 0.0361 0.0596"/>
     <limit effort="10" lower="0" upper="2.685" velocity="10"/>
-    <!--<dynamics damping="0.1"/>-->
+    <dynamics damping="0.0" friction="0.1"/>
   </joint>
+  <!-- end of joint list -->
   <transmission name="l_f0_j0_transmssion">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="l_f0_j0">
@@ -1005,7 +977,7 @@
     <axis xyz="1 0 0"/>
     <origin rpy="-1.315 0 0" xyz="0.036 0.0361 0.0596"/>
     <limit effort="10" lower="0" upper="2.685" velocity="10"/>
-    <!--<dynamics damping="0.1"/>-->
+    <dynamics damping="0.0" friction="0.1"/>
   </joint>
   <joint name="r_f0_j0" type="revolute">
     <parent link="r_palm"/>
@@ -1013,8 +985,9 @@
     <axis xyz="1 0 0"/>
     <origin rpy="-1.315 0 0" xyz="-0.0355 0.0361 0.0596"/>
     <limit effort="10" lower="0" upper="2.685" velocity="10"/>
-    <!--<dynamics damping="0.1"/>-->
+    <dynamics damping="0.0" friction="0.1"/>
   </joint>
+  <!-- end of joint list -->
   <transmission name="r_f0_j0_transmssion">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="r_f0_j0">
@@ -1218,7 +1191,7 @@
   <joint name="imu_fixed" type="fixed">
     <parent link="pelvis_link"/>
     <child link="imu_link"/>
-    <origin rpy="3.14159265359 0.0 3.14159265359" xyz="0.03 0.0 0.0"/>
+    <origin rpy="0.0 0.0 3.14159265359" xyz="0.03 0.0 0.0"/>
   </joint>
   <link name="imu_link">
   </link>
@@ -1591,7 +1564,7 @@
   </joint>
   <!-- wrist ft link -->
   <link name="l_wrist_ft_link">
-        </link>
+    </link>
   <!-- shoulder pitch 1 joint -->
   <joint name="r_arm_sh_p1" type="revolute">
     <axis xyz="0 -1 0"/>
@@ -1961,7 +1934,7 @@
   </joint>
   <!-- wrist ft link -->
   <link name="r_wrist_ft_link">
-        </link>
+    </link>
   <!-- hip yaw joint -->
   <joint name="l_leg_hip_y" type="revolute">
     <axis xyz="0 0 -1"/>
@@ -1997,7 +1970,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0.012 0.000 -0.025"/>
+      <origin rpy="0 0 0" xyz="0.012 0.0 -0.025"/>
       <mass value="0.243"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00101" iyz="0.0" izz="0.00092" /> -->
@@ -2040,7 +2013,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.068 0.000 0.000"/>
+      <origin rpy="0 0 0" xyz="-0.068 0.0 0.000"/>
       <mass value="1.045"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00056" ixy="0.0" ixz="0.0" iyy="0.00168" iyz="0.0" izz="0.00171" /> -->
@@ -2068,9 +2041,9 @@
   <!-- hip pitch link -->
   <link name="l_leg_hip_p_link">
     <collision>
-      <origin rpy="0 0 0" xyz="0 -0.005 -0.145"/>
+      <origin rpy="0 0 0" xyz="0 -0.005 -0.135"/>
       <geometry>
-        <box size="0.11 0.16 0.33"/>
+        <box size="0.11 0.16 0.34"/>
       </geometry>
     </collision>
     <visual>
@@ -2206,7 +2179,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.070 0.000 -0.048"/>
+      <origin rpy="0 0 0" xyz="-0.070 0.0 -0.048"/>
       <mass value="0.223"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00022" ixy="0.0" ixz="-0.00001" iyy="0.00099" iyz="0.0" izz="0.00091" /> -->
@@ -2286,7 +2259,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0.012 0.000 -0.025"/>
+      <origin rpy="0 0 0" xyz="0.012 -0.0 -0.025"/>
       <mass value="0.243"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00024" ixy="0.0" ixz="0.0" iyy="0.00101" iyz="0.0" izz="0.00092" /> -->
@@ -2329,7 +2302,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.068 0.000 0.000"/>
+      <origin rpy="0 0 0" xyz="-0.068 -0.0 0.000"/>
       <mass value="1.045"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00056" ixy="0.0" ixz="0.0" iyy="0.00168" iyz="0.0" izz="0.00171" /> -->
@@ -2357,9 +2330,9 @@
   <!-- hip pitch link -->
   <link name="r_leg_hip_p_link">
     <collision>
-      <origin rpy="0 0 0" xyz="0 -0.005 -0.145"/>
+      <origin rpy="0 0 0" xyz="0 0.005 -0.135"/>
       <geometry>
-        <box size="0.11 0.16 0.33"/>
+        <box size="0.11 0.16 0.34"/>
       </geometry>
     </collision>
     <visual>
@@ -2370,7 +2343,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0.022 -0.007 -0.168"/>
+      <origin rpy="0 0 0" xyz="0.022 0.007 -0.168"/>
       <mass value="3.095"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.04328" ixy="0.00028" ixz="0.00288" iyy="0.04042" iyz="-0.00202" izz="0.00560" /> -->
@@ -2411,7 +2384,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.002 -0.066 -0.183"/>
+      <origin rpy="0 0 0" xyz="-0.002 0.066 -0.183"/>
       <mass value="2.401"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.01971" ixy="0.00031" ixz="-0.00294" iyy="0.01687" iyz="0.00140" izz="0.00574" /> -->
@@ -2454,7 +2427,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.011 -0.033 0.000"/>
+      <origin rpy="0 0 0" xyz="-0.011 0.033 0.000"/>
       <mass value="1.045"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00056" ixy="0.0" ixz="0.0" iyy="0.00168" iyz="0.0" izz="0.00171" /> -->
@@ -2495,7 +2468,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.070 0.000 -0.048"/>
+      <origin rpy="0 0 0" xyz="-0.070 -0.0 -0.048"/>
       <mass value="0.223"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00022" ixy="0.0" ixz="-0.00001" iyy="0.00099" iyz="0.0" izz="0.00091" /> -->
@@ -2534,7 +2507,7 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0.000 0.009 -0.013"/>
+      <origin rpy="0 0 0" xyz="0.000 -0.009 -0.013"/>
       <mass value="1.689"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
       <!-- <inertia ixx="0.00219" ixy="0.0" ixz="0.0" iyy="0.00433" iyz="0.00011" izz="0.00609" /> -->
@@ -2575,8 +2548,8 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
-      <mass value="1.0"/>
+      <origin rpy="0 0 0" xyz="0.0 -0.002 0.010"/>
+      <mass value="0.087"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
@@ -2615,8 +2588,8 @@
       <material name="grey"/>
     </visual>
     <inertial>
-      <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
-      <mass value="1.0"/>
+      <origin rpy="0 0 0" xyz="0.009 0.046 0.022"/>
+      <mass value="0.724"/>
       <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
     </inertial>
   </link>
@@ -2782,7 +2755,7 @@
       <link name="${name}_depth_frame"/>
 
       <joint name="${name}_depth_optical_joint" type="fixed">
-        <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+        <origin xyz="0 0 0" rpy="${-pi/2} 0.0 ${-pi/2}" />
         <parent link="${name}_depth_frame" />
         <child link="${name}_depth_optical_frame"/>
       </joint>
@@ -2799,7 +2772,7 @@
       <link name="${name}_depth_frame_aux"/>
 
       <joint name="${name}_depth_optical_joint_aux" type="fixed">
-        <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+        <origin xyz="0 0 0" rpy="${-pi/2} 0.0 ${-pi/2}" />
         <parent link="${name}_depth_frame_aux" />
         <child link="${name}_depth_optical_frame_aux"/>
       </joint>
@@ -2816,38 +2789,67 @@
       <link name="${name}_rgbd_cam_link"/>
 
       <joint name="${name}_rgb_optical_joint" type="fixed">
-        <origin xyz="0 0 0" rpy="${-M_PI/2} 0.0 ${-M_PI/2}" />
+        <origin xyz="0 0 0" rpy="${-pi/2} 0.0 ${-pi/2}" />
         <parent link="${name}_rgb_frame" />
         <child link="${name}_rgb_optical_frame"/>
       </joint>
 
       <link name="${name}_rgb_optical_frame"/>-->
   <gazebo reference="head_cam_link">
-    <material>Gazebo/Grey</material>
+    <material>Gazebo/Blue</material>
   </gazebo>
-  <!-- ASUS Xtion PRO camera for simulation -->
   <gazebo reference="head_cam_link">
-    <sensor name="head_cam" type="depth">
+    <sensor name="head_cam_rgb" type="camera">
+      <always_on>1</always_on>
+      <update_rate>30</update_rate>
+      <camera>
+        <horizontal_fov>1.2217304764</horizontal_fov>
+        <image>
+          <format>B8G8R8</format>
+          <width>1920</width>
+          <height>1080</height>
+        </image>
+        <clip>
+          <near>0.001</near>
+          <far>100</far>
+        </clip>
+        <distortion>
+          <k1>0.0</k1>
+          <k2>0.0</k2>
+          <k3>0.0</k3>
+          <p1>-0.0</p1>
+          <p2>-0.00</p2>
+          <center>0.5 0.5</center>
+        </distortion>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="head_cam_camera_depth_controller">
+        <robotNamespace>johnny5/sensor/head_cam/rgb</robotNamespace>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>head_cam_rgb_optical_frame</frameName>
+      </plugin>
+    </sensor>
+    <sensor name="head_cam_depth" type="depth">
       <update_rate>20</update_rate>
       <camera>
-        <horizontal_fov>1.09606677025</horizontal_fov>
+        <horizontal_fov>1.02974425868</horizontal_fov>
         <image>
-          <format>R8G8B8</format>
+          <format>B8G8R8</format>
           <width>640</width>
           <height>480</height>
         </image>
         <clip>
           <near>0.5</near>
-          <far>9</far>
+          <far>10.0</far>
         </clip>
       </camera>
-      <plugin filename="libgazebo_ros_openni_kinect.so" name="head_cam_camera_controller">
-        <robotNamespace>johnny5/sensor/</robotNamespace>
-        <imageTopicName>head_cam/rgb/image_raw</imageTopicName>
-        <cameraInfoTopicName>head_cam/rgb/camera_info</cameraInfoTopicName>
-        <depthImageTopicName>head_cam/depth/image_raw</depthImageTopicName>
-        <depthImageCameraInfoTopicName>head_cam/depth/camera_info</depthImageCameraInfoTopicName>
-        <pointCloudTopicName>head_cam/depth/points</pointCloudTopicName>
+      <plugin filename="libgazebo_ros_openni_kinect.so" name="head_cam_camera_rgb_controller">
+        <robotNamespace>johnny5/sensor/head_cam</robotNamespace>
+        <imageTopicName>ir/image_raw</imageTopicName>
+        <cameraInfoTopicName>ir/camera_info</cameraInfoTopicName>
+        <depthImageTopicName>depth/image_raw</depthImageTopicName>
+        <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+        <pointCloudTopicName>depth/points</pointCloudTopicName>
         <frameName>head_cam_depth_optical_frame</frameName>
       </plugin>
     </sensor>

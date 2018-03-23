@@ -94,9 +94,9 @@
         <!-- hip pitch link -->
         <link name="${prefix}_leg_hip_p_link">
             <collision>
-                <origin xyz="0 -0.005 -0.145" rpy="0 0 0"/>
+                <origin xyz="0 ${reflect * -0.005} -0.135" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.11 0.16 0.33" />
+                    <box size="0.11 0.16 0.34" />
                 </geometry>
             </collision>
 

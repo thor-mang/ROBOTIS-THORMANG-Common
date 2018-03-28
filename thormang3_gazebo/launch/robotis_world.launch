@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <launch>
-
   <arg name="position_controller" default="true"/>
 
   <!-- these are the arguments you can pass this launch file, for example paused:=true -->
@@ -21,11 +20,10 @@
   </include>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description"
-	 command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
+  <param name="robot_description" command="$(find xacro)/xacro.py '$(find thormang3_description)/urdf/thormang3.xacro'" />
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
-  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+  <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
 	args="-urdf -model thormang3 -z 0.9 -param robot_description"/>
 
   <!-- ros_control robotis humanoid launch file -->

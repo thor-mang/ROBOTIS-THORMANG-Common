@@ -1,16 +1,20 @@
 ################################################################################
-# CMake
+# Set minimum required version of cmake, project name and compile options
 ################################################################################
 cmake_minimum_required(VERSION 2.8.3)
 project(thormang3_gazebo)
 
 ################################################################################
-# Packages
+# Find catkin packages and libraries for catkin and system dependencies
 ################################################################################
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
 )
+
+################################################################################
+# Setup for python modules and scripts
+################################################################################
 
 ################################################################################
 # Declare ROS messages, services and actions
@@ -21,12 +25,10 @@ find_package(catkin REQUIRED COMPONENTS
 ################################################################################
 
 ################################################################################
-# Catkin specific configuration
+# Declare catkin specific configuration to be passed to dependent projects
 ################################################################################
 catkin_package(
-  CATKIN_DEPENDS
-  roscpp
-  std_msgs
+  CATKIN_DEPENDS roscpp std_msgs
 )
 
 ################################################################################
@@ -36,33 +38,19 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(gazebo_grip_pub
-	src/gazebo_grip_pub.cpp
-)
-
-target_link_libraries(gazebo_grip_pub
-  ${catkin_LIBRARIES}
-)
+add_executable(gazebo_grip_pub src/gazebo_grip_pub.cpp)
+add_dependencies(gazebo_grip_pub ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(gazebo_grip_pub ${catkin_LIBRARIES})
 
 ################################################################################
 # Install
 ################################################################################
 install(TARGETS gazebo_grip_pub
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-install(DIRECTORY config
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
-install(DIRECTORY launch
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
-)
-
-install(DIRECTORY worlds
-        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+install(DIRECTORY config launch worlds
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
 ################################################################################

@@ -42,16 +42,20 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://thormang3_description/meshes/robotis_pelvis_link.stl" scale="0.001 0.001 0.001"/>
+	<!--<mesh filename="package://thormang3_description/meshes/robotis_pelvis_link.stl" scale="0.001 0.001 0.001"/>-->
+        <mesh filename="package://thormang3_description/meshes/robotis_pelvis_link_upgraded.stl" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="grey"/>
     </visual>
 
     <inertial>
       <origin xyz="-0.011 0.000 0.058" rpy="0 0 0"/>
+      <!--<origin xyz="-0.006 0.0 0.061" rpy="0 0 0"/>-->
       <mass value="6.869"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-      <!--<inertia ixx="0.03603" ixy="0.0" ixz="0.00016" iyy="0.02210" iyz="0.0" izz="0.03830" />--> 
+      <!--<mass value="6.767"/>-->
+      <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />--> 
+      <inertia ixx="0.03603" ixy="0.0" ixz="0.00016" iyy="0.02210" iyz="0.0" izz="0.03830" />
+      <!--<inertia ixx="0.059" ixy="0.0" ixz="-0.002" iyy="0.048" iyz="0.0" izz="0.034" />-->
     </inertial>
   </link>
 
@@ -59,7 +63,8 @@
   <joint name="torso_y" type="revolute">
     <parent link="pelvis_link"/>
     <child link="chest_link"/>
-    <origin xyz="0 0 0.1705" rpy="0 0 0"/>
+    <!--<origin xyz="0 0 0.1705" rpy="0 0 0"/>-->
+    <origin xyz="0 0 0.1775" rpy="0 0 0"/> <!--torso 7mm higher because of pelvis upgrade (cf. new .stl)-->
     <axis xyz="0 0 1"/>
     <limit velocity="6.5" effort="1000" lower="${-pi*0.25}" upper="${pi*0.25}" />
     <dynamics damping="0.1" friction="0.0" />
@@ -205,8 +210,8 @@
     <inertial>
       <origin xyz="-0.007 0.000 0.109" rpy="0 0 0"/>
       <mass value="5.383"/>
-      <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-      <inertia ixx="0.04710" ixy="0.0" ixz="0.04710" iyy="0.02554" iyz="0.0" izz="0.03094" /> 
+      <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />-->
+      <inertia ixx="0.04710" ixy="0.0" ixz="0.00036" iyy="0.02554" iyz="0.0" izz="0.03094" /> 
     </inertial>
   </link>
 

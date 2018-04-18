@@ -88,8 +88,8 @@
       <inertial>
         <origin xyz="-0.003 ${reflect * 0.020} -0.005" rpy="0 0 0" />
         <mass value="0.194" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /> 
-        <!--<inertia ixx="0.00018" ixy="0.0" ixz="0.0" iyy="0.00058" iyz="0.00004" izz="0.00057" />--> 
+        <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />--> 
+        <inertia ixx="0.00018" ixy="0.0" ixz="0.0" iyy="0.00058" iyz="${reflect * 0.00004}" izz="0.00057" /> 
       </inertial>
     </link>
 
@@ -129,8 +129,8 @@
     <inertial>
         <origin xyz="-0.060 ${reflect * 0.002} 0.000" rpy="0 0 0" />
         <mass value="0.875" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-        <!--<inertia ixx="0.00043" ixy="0.0" ixz="0.0" iyy="0.00112" iyz="0.0" izz="0.00113" />--> 
+        <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />--> 
+        <inertia ixx="0.00043" ixy="0.0" ixz="0.0" iyy="0.00112" iyz="0.0" izz="0.00113" />
     </inertial>
     </link>
 
@@ -181,10 +181,10 @@
       </visual>
 
       <inertial>
-        <origin xyz="0.000 0.073 0.000" rpy="0 0 0" />
+        <origin xyz="0.000 ${reflect * 0.073} 0.000" rpy="0 0 0" />
         <mass value="1.122" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /> 
-        <!--<inertia ixx="0.00277" ixy="-0.00002" ixz="-0.00001" iyy="0.00090" iyz="-0.00004" izz="0.00255" />--> 
+        <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />--> 
+        <inertia ixx="0.00277" ixy="${reflect * -0.00002}" ixz="-0.00001" iyy="0.00090" iyz="${reflect * -0.00004}" izz="0.00255" /> 
       </inertial>
     </link>
 
@@ -225,8 +225,8 @@
       <inertial>
         <origin xyz="0.042 ${reflect * 0.012} -0.058" rpy="0 0 0" />
         <mass value="1.357" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /> 
-        <!--<inertia ixx="0.00152" ixy="-0.00100" ixz="-0.00006" iyy="0.00560" iyz="-0.00002" izz="0.00528" />-->
+        <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />--> 
+        <inertia ixx="0.00152" ixy="${reflect * -0.00100}" ixz="-0.00006" iyy="0.00560" iyz="${reflect * -0.00002}" izz="0.00528" />
       </inertial>
     </link>
 
@@ -279,8 +279,8 @@
       <inertial>
         <origin xyz="0.010 0.000 ${reflect * 0.002}" rpy="0 0 0" />
         <mass value="0.087" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />           
-        <!--<inertia ixx="0.00012" ixy="0.0" ixz="0.0" iyy="0.00011" iyz="0.0" izz="0.00003" />-->
+        <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />-->
+        <inertia ixx="0.00012" ixy="0.0" ixz="0.0" iyy="0.00011" iyz="0.0" izz="0.00003" />
       </inertial>
     </link>
 
@@ -321,8 +321,8 @@
       <inertial>
         <origin xyz="0.023 ${reflect * 0.001} -0.046" rpy="0 0 0" />
         <mass value="0.768" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />
-        <!--<inertia ixx="0.00059" ixy="-0.00002" ixz="-0.00002" iyy="0.00078" iyz="0.0" izz="0.00078" />--> 
+        <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />-->
+        <inertia ixx="0.00059" ixy="${reflect * -0.00002}" ixz="-0.00002" iyy="0.00078" iyz="0.0" izz="0.00078" /> 
       </inertial>
     </link>
 
@@ -367,25 +367,27 @@
       </visual>
 
       <inertial>
-        <origin xyz="0.049 ${reflect * 0.045} ${reflect * 0.002}" rpy="0 0 0" />
+        <!--<origin xyz="0.049 ${reflect * 0.045} ${reflect * 0.002}" rpy="0 0 0" />-->
+	<origin xyz="0.029 ${reflect * 0.045} 0.0" rpy="0 0 0" />
         <mass value="0.087" />
-        <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /> 
-        <!--<inertia ixx="0.00047" ixy="-0.00001" ixz="0.0" iyy="0.00042" iyz="0.0" izz="0.00058" />-->
+        <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />--> 
+        <!--<inertia ixx="0.00047" ixy="${reflect * -0.00001}" ixz="0.0" iyy="0.00042" iyz="0.0" izz="0.00058" />-->
+        <inertia ixx="0.00012" ixy="0.0" ixz="0.0" iyy="0.00003" iyz="0.0" izz="0.00011" />
       </inertial>
     </link>
     
     <!--ft joint -->
     <!--use "fixed" revolute joint for FT sensor simulation-->
-    <joint name="${prefix}_arm_ft" type="revolute">
+    <!--<joint name="${prefix}_arm_ft" type="revolute">
       <origin xyz="0.055 ${reflect * 0.045} 0" rpy="${-reflect * 0.5 * pi} 0 ${-reflect * 0.5 * pi}" />
       <parent link="${prefix}_arm_wr_p_link" />
       <child link="${prefix}_wrist_ft_link" />
       <limit velocity="6.5" effort="1000" lower="0" upper="0" />
-    </joint> 
+    </joint>-->
 
     <!-- wrist ft link -->
-    <link name="${prefix}_wrist_ft_link">
-    </link>
+    <!--<link name="${prefix}_wrist_ft_link">
+    </link>-->
   </xacro:macro>
 
 </robot>

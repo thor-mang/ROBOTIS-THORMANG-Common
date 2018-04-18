@@ -129,7 +129,7 @@
   </gazebo>
     
   <!-- Left hand -->
-  <gazebo reference="l_arm_ft">
+  <!--<gazebo reference="l_arm_ft">
     <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo>
@@ -138,10 +138,10 @@
       <topicName>/gazebo/$(arg robot_name)/sensor/ft/left_wrist</topicName>
       <jointName>l_arm_ft</jointName>
     </plugin>
-  </gazebo>
+  </gazebo>-->
     
   <!-- Right hand -->
-  <gazebo reference="r_arm_ft">
+  <!--<gazebo reference="r_arm_ft">
     <provideFeedback>true</provideFeedback>
   </gazebo>
   <gazebo>
@@ -150,7 +150,7 @@
       <topicName>/gazebo/$(arg robot_name)/sensor/ft/right_wrist</topicName>
       <jointName>r_arm_ft</jointName>
     </plugin>
-  </gazebo>
+  </gazebo>-->
 
   <!-- World -->
   <gazebo reference="world">

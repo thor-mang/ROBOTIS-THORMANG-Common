@@ -160,7 +160,7 @@
           </visual>
 
           <inertial>
-            <origin xyz="0.000 0.073 0.000" rpy="0 0 0" />
+            <origin xyz="0.000 ${reflect * 0.073} 0.000" rpy="0 0 0" />
             <mass value="1.122" />
             <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /> 
             <!--<inertia ixx="0.00277" ixy="-0.00002" ixz="-0.00001" iyy="0.00090" iyz="-0.00004" izz="0.00255" />--> 
@@ -346,7 +346,7 @@
           </visual>
 
           <inertial>
-            <origin xyz="0.049 ${reflect * 0.045} ${reflect * 0.002}" rpy="0 0 0" />
+            <origin xyz="0.029 ${reflect * 0.045} 0.0" rpy="0 0 0" />
             <mass value="0.087" />
             <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" /> 
             <!--<inertia ixx="0.00047" ixy="-0.00001" ixz="0.0" iyy="0.00042" iyz="0.0" izz="0.00058" />-->

@@ -33,9 +33,11 @@
   <!-- pelvis_link -->
   <link name="pelvis_link">
     <collision>
-      <origin xyz="-0.01 0 0.07" rpy="0 0 0"/>
+      <!--<origin xyz="-0.01 0 0.07" rpy="0 0 0"/>-->
+      <origin xyz="0.01 0 0.072" rpy="0 0 0"/>
       <geometry>
-        <box size="0.2 0.25 0.17" />
+        <!--<box size="0.2 0.25 0.17" />-->
+        <box size="0.2 0.25 0.174" />
       </geometry>
     </collision>
 
@@ -49,13 +51,11 @@
     </visual>
 
     <inertial>
-      <origin xyz="-0.011 0.000 0.058" rpy="0 0 0"/>
-      <!--<origin xyz="-0.006 0.0 0.061" rpy="0 0 0"/>-->
+      <!--<origin xyz="-0.011 0.000 0.058" rpy="0 0 0"/>-->
+      <origin xyz="0.011 0.000 0.060" rpy="0 0 0"/>
       <mass value="6.869"/>
-      <!--<mass value="6.767"/>-->
       <!--<inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0" />--> 
       <inertia ixx="0.03603" ixy="0.0" ixz="0.00016" iyy="0.02210" iyz="0.0" izz="0.03830" />
-      <!--<inertia ixx="0.059" ixy="0.0" ixz="-0.002" iyy="0.048" iyz="0.0" izz="0.034" />-->
     </inertial>
   </link>
 
@@ -64,7 +64,7 @@
     <parent link="pelvis_link"/>
     <child link="chest_link"/>
     <!--<origin xyz="0 0 0.1705" rpy="0 0 0"/>-->
-    <origin xyz="0 0 0.1775" rpy="0 0 0"/> <!--torso 7mm higher because of pelvis upgrade (cf. new .stl)-->
+    <origin xyz="0 0 0.1795" rpy="0 0 0"/> <!--torso 9mm higher because of pelvis upgrade (cf. new .stl)-->
     <axis xyz="0 0 1"/>
     <limit velocity="6.5" effort="1000" lower="${-pi*0.25}" upper="${pi*0.25}" />
     <dynamics damping="0.1" friction="0.0" />

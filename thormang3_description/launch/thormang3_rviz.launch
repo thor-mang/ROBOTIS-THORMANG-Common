@@ -20,5 +20,4 @@
 
   <!-- Show in Rviz -->
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(find thormang3_description)/launch/thormang3.rviz"/>
-
 </launch>

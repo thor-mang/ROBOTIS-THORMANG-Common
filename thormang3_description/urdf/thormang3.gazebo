@@ -88,7 +88,7 @@
 
   <!-- imu plugin -->  
   <gazebo>
-  <plugin name="imu_link" filename="libhector_gazebo_ros_imu.so">
+    <plugin name="imu_link" filename="libhector_gazebo_ros_imu.so">
       <alwaysOn>true</alwaysOn>
       <updateRate>125.0</updateRate>
       <bodyName>imu_link</bodyName>
@@ -101,7 +101,7 @@
       <headingGaussianNoise>0.05</headingGaussianNoise>
       <rpyOffsets>0.0 0.0 ${pi}</rpyOffsets>
     </plugin>
-</gazebo>
+  </gazebo>
     
   <!-- FT sensors -->
   <!-- Left leg -->

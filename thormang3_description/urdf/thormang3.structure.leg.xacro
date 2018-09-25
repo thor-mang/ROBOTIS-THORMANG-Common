@@ -75,7 +75,7 @@
             </inertial>
         </link>
 
-  <!-- hip pitch joint -->
+        <!-- hip pitch joint -->
         <joint name="${prefix}_leg_hip_p" type="revolute">
             <axis xyz="0 ${reflect} 0" />    
             <origin xyz="-0.057 ${reflect * 0.033} 0.0" rpy="0 0 0"/>

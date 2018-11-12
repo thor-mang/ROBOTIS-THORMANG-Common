@@ -7,7 +7,7 @@
   <xacro:include filename="$(find thormang3_description)/urdf/thormang3.structure.head.xacro" />
 
 
-  <!-- Used for pinning robot -->
+  <!-- used for pinning robot -->
   <xacro:arg name="pinned" default="false"/>
   <xacro:if value="$(arg pinned)">
 

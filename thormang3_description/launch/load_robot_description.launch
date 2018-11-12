@@ -5,6 +5,7 @@
   <arg name="robot_name" default="thormang3" />
   <arg name="l_hand_type" default="$(optenv L_HAND_TYPE none)" />
   <arg name="r_hand_type" default="$(optenv R_HAND_TYPE none)" />
+  <arg name="wrist_ft_sensor" default="true" />
   <arg name="pinned" default="false"/>
 
   <!-- Load the URDF into the ROS Parameter Server -->
@@ -12,5 +13,6 @@
     robot_name:=$(arg robot_name)
     l_hand_type:=$(arg l_hand_type)
     r_hand_type:=$(arg r_hand_type)
+    wrist_ft_sensor:=$(arg wrist_ft_sensor)
     pinned:=$(arg pinned)" />
 </launch>

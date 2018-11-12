@@ -6,6 +6,7 @@
   <xacro:arg name="wrist_ft_sensor" default="true" />
 
   <xacro:if value="$(arg wrist_ft_sensor)">
+    <!--use "fixed" revolute joint for FT sensor simulation-->
     <xacro:property name="arm_ft_joint_type" value="revolute" />
   </xacro:if>
   <xacro:unless value="$(arg wrist_ft_sensor)">
@@ -384,7 +385,6 @@
     </link>
     
     <!--ft joint -->
-    <!--use "fixed" revolute joint for FT sensor simulation-->
     <joint name="${prefix}_arm_ft" type="${arm_ft_joint_type}">
       <origin xyz="0.055 ${reflect * 0.045} 0" rpy="${-reflect * 0.5 * pi} 0 ${-reflect * 0.5 * pi}" />
       <parent link="${prefix}_arm_wr_p_link" />

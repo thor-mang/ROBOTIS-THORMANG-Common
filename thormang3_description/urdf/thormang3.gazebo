@@ -1,5 +1,11 @@
 <?xml version="1.0"?>
-<robot>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="l_hand_type" default="none" />
+  <xacro:arg name="r_hand_type" default="none" />
+
+  <xacro:property name="l_hand_type" value="$(arg l_hand_type)" />
+  <xacro:property name="r_hand_type" value="$(arg r_hand_type)" />
 
   <!-- ros_control plugin -->
   <gazebo>
@@ -129,28 +135,33 @@
   </gazebo>
     
   <!-- Left hand -->
-  <gazebo reference="l_arm_ft">
-    <provideFeedback>true</provideFeedback>
-  </gazebo>
-  <gazebo>
-    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-      <updateRate>125.0</updateRate>
-      <topicName>/gazebo/$(arg robot_name)/sensor/ft/left_wrist</topicName>
-      <jointName>l_arm_ft</jointName>
-    </plugin>
-  </gazebo>
+  
+  <xacro:if value="${l_hand_type != 'none'}">
+    <gazebo reference="l_arm_ft">
+      <provideFeedback>true</provideFeedback>
+    </gazebo>
+    <gazebo>
+      <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>125.0</updateRate>
+        <topicName>/gazebo/$(arg robot_name)/sensor/ft/left_wrist</topicName>
+        <jointName>l_arm_ft</jointName>
+      </plugin>
+    </gazebo>
+  </xacro:if>
     
   <!-- Right hand -->
-  <gazebo reference="r_arm_ft">
-    <provideFeedback>true</provideFeedback>
-  </gazebo>
-  <gazebo>
-    <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
-      <updateRate>125.0</updateRate>
-      <topicName>/gazebo/$(arg robot_name)/sensor/ft/right_wrist</topicName>
-      <jointName>r_arm_ft</jointName>
-    </plugin>
-  </gazebo>
+  <xacro:if value="${r_hand_type != 'none'}">
+    <gazebo reference="r_arm_ft">
+      <provideFeedback>true</provideFeedback>
+    </gazebo>
+    <gazebo>
+      <plugin name="ft_sensor" filename="libgazebo_ros_ft_sensor.so">
+        <updateRate>125.0</updateRate>
+        <topicName>/gazebo/$(arg robot_name)/sensor/ft/right_wrist</topicName>
+        <jointName>r_arm_ft</jointName>
+      </plugin>
+    </gazebo>
+  </xacro:if>
 
   <!-- World -->
   <gazebo reference="world">

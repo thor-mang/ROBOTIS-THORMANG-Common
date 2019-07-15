@@ -9,7 +9,7 @@
   <arg name="pinned" default="false"/>
 
   <!-- Load the URDF into the ROS Parameter Server -->
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find thormang3_description)/urdf/thormang3.xacro'
+  <param name="robot_description" command="$(find xacro)/xacro '$(find thormang3_description)/urdf/thormang3.xacro'
     robot_name:=$(arg robot_name)
     l_hand_type:=$(arg l_hand_type)
     r_hand_type:=$(arg r_hand_type)

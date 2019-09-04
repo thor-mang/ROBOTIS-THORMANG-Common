@@ -20,7 +20,7 @@
   <gazebo>
     <plugin name="ground_truth" filename="libgazebo_ros_p3d.so">			
       <frameName>world</frameName>
-        <bodyName>pelvis_link</bodyName>
+        <bodyName>base_link</bodyName>
         <topicName>/gazebo/$(arg robot_name)/pelvis_odom</topicName>
         <updateRate>125.0</updateRate>
     </plugin>
@@ -135,7 +135,6 @@
   </gazebo>
     
   <!-- Left hand -->
-  
   <xacro:if value="${l_hand_type != 'none'}">
     <gazebo reference="l_arm_ft">
       <provideFeedback>true</provideFeedback>
@@ -168,7 +167,7 @@
   </gazebo>
 
   <!-- Base -->
-  <gazebo reference="base">
+  <gazebo reference="base_link">
   </gazebo>
 
   <!-- Body-->

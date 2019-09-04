@@ -6,36 +6,35 @@
   <xacro:include filename="$(find thormang3_description)/urdf/thormang3.structure.leg.xacro" />
   <xacro:include filename="$(find thormang3_description)/urdf/thormang3.structure.head.xacro" />
 
-
   <!-- used for pinning robot -->
   <xacro:arg name="pinned" default="false"/>
   <xacro:if value="$(arg pinned)">
-
     <link name="world">
     </link>
 
     <joint name="world_fixed" type="fixed">
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <parent link="world"/>
-      <child link="base"/>
-    </joint>
-
-    <link name="base">
-    </link>
-
-    <joint name="base_fixed" type="fixed">
-      <origin xyz="0 0 0.723" rpy="0 0 0"/>
-      <parent link="base"/>
-      <child link="pelvis_link"/>
+      <child link="base_link"/>
     </joint>
   </xacro:if>
+
+  <!-- fake link without mass -->
+  <link name="base_link">
+  </link>
+
+  <joint name="base_fixed" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="pelvis_link"/>
+  </joint>
 
   <!-- pelvis_link -->
   <link name="pelvis_link">
     <collision>
       <origin xyz="0.01 0 0.072" rpy="0 0 0"/>
       <geometry>
-	<box size="0.2 0.25 0.174" />
+        <box size="0.2 0.25 0.174" />
       </geometry>
     </collision>
 
@@ -211,14 +210,14 @@
   </link>
 
   <!-- imu joint -->
+  <link name="imu_link">
+  </link>
+
   <joint name="imu_fixed" type="fixed">
     <parent link="pelvis_link"/>
     <child link="imu_link"/>
     <origin xyz="0.03 0.0 0.0" rpy="0.0 0.0 ${pi}"/>
   </joint>
-
-  <link name="imu_link">
-  </link>
   
   <!-- backpack housing -->
   <link name="backpack_link">    

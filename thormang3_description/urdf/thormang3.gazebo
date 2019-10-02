@@ -98,6 +98,7 @@
       <alwaysOn>true</alwaysOn>
       <updateRate>125.0</updateRate>
       <bodyName>imu_link</bodyName>
+      <frameId>imu_link</frameId>
       <topicName>/gazebo/$(arg robot_name)/sensor/imu</topicName>
       <accelDrift>0.0 0.0 0.0</accelDrift>
       <accelGaussianNoise>0.1 0.1 0.1</accelGaussianNoise>

@@ -5,5 +5,5 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="calibration">
-  <origin rpy="3.14159 3.11752 3.14058" xyz="0 -0.00237062 0.0100379"/>
+  <origin rpy="0 0.0459734 0.00054707" xyz="0 0.000151927 0.00627848"/>
 </robot>
